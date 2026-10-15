@@ -41,46 +41,46 @@ const dishes = [
 
 <BaseLayout lang={lang} route="home" title={t.seoHomeTitle} description={t.seoHomeDescription}>
   <JsonLd lang={lang} />
-  <section class="mx-auto grid max-w-6xl items-end gap-10 px-5 py-16 md:grid-cols-[1.4fr_0.8fr] md:py-24">
+  <section class="mx-auto grid max-w-6xl items-end gap-8 px-5 py-8 text-center md:grid-cols-[1.4fr_0.8fr] md:gap-10 md:py-24 md:text-left">
     <div>
       <p class="kicker">{t.heroEyebrow}</p>
-      <h1 class="mt-4 font-serif text-6xl tracking-wide text-ink md:text-8xl">Kizuna</h1>
-      <p class="mt-6 max-w-xl font-serif text-3xl text-ink-soft md:text-4xl">{t.heroLead}</p>
-      <p class="mt-5 max-w-xl text-ink-soft">{t.heroSub}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a class="btn" href={localePath(lang, 'reserve')}>{t.ctaReserve}</a>
-        <a class="btn" href={restaurant.wolt} target="_blank" rel="noopener noreferrer">
+      <h1 class="mt-3 font-serif text-5xl tracking-wide text-ink md:mt-4 md:text-8xl">Kizuna</h1>
+      <p class="mx-auto mt-4 max-w-xl font-serif text-2xl text-ink-soft md:mx-0 md:mt-6 md:text-4xl">{t.heroLead}</p>
+      <p class="mx-auto mt-4 max-w-xl text-ink-soft md:mx-0 md:mt-5">{t.heroSub}</p>
+      <div class="mx-auto mt-6 grid max-w-sm gap-3 sm:max-w-none sm:flex sm:flex-wrap sm:justify-center md:mx-0 md:mt-8 md:justify-start">
+        <a class="btn w-full sm:w-auto" href={localePath(lang, 'reserve')}>{t.ctaReserve}</a>
+        <a class="btn w-full sm:w-auto" href={restaurant.wolt} target="_blank" rel="noopener noreferrer">
           {t.ctaOrder}
           <span class="sr-only">({t.ctaOrderOpens})</span>
         </a>
-        <a class="btn-ghost" href={localePath(lang, 'menu')}>{t.ctaMenu}</a>
+        <a class="btn-ghost w-full sm:w-auto" href={localePath(lang, 'menu')}>{t.ctaMenu}</a>
       </div>
-      <div class="mt-8">
+      <div class="mt-6 md:mt-8">
         <OpenStatus lang={lang} />
       </div>
     </div>
-    <div class="flex items-center justify-center">
+    <div class="order-first flex items-center justify-center md:order-none">
       <Image
         src={logo}
         alt=""
-        widths={[480, 720, 1020]}
-        sizes="(min-width: 768px) 36vw, 80vw"
-        class="w-full max-w-md"
+        widths={[320, 480, 720, 1020]}
+        sizes="(min-width: 768px) 36vw, 42vw"
+        class="w-36 md:w-full md:max-w-md"
         loading="eager"
       />
     </div>
   </section>
 
   <section class="border-y border-line bg-foam" aria-label={t.hoursHeading}>
-    <dl class="mx-auto grid max-w-6xl gap-8 px-5 py-10 md:grid-cols-3">
-      <div>
+    <dl class="mx-auto grid max-w-6xl px-5 md:grid-cols-3 md:gap-8 md:py-10">
+      <div class="border-b border-line py-5 md:border-0 md:py-0">
         <dt class="text-sm text-muted">{t.addressHeading}</dt>
         <dd class="mt-2">
           {restaurant.street}<br />
           {restaurant.postalCode} {restaurant.city}
         </dd>
       </div>
-      <div>
+      <div class="border-b border-line py-5 md:border-0 md:py-0">
         <dt class="text-sm text-muted">{t.hoursHeading}</dt>
         <dd class="mt-2">
           {t.hoursWeek}<br />
@@ -89,7 +89,7 @@ const dishes = [
           <span class="text-muted">{t.hoursLast}</span>
         </dd>
       </div>
-      <div>
+      <div class="py-5 md:py-0">
         <dt class="text-sm text-muted">{t.contactHeading}</dt>
         <dd class="mt-2">
           <a href={`tel:${restaurant.phoneTel}`}>{restaurant.phoneDisplay}</a><br />
@@ -99,7 +99,7 @@ const dishes = [
     </dl>
   </section>
 
-  <section class="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-[0.8fr_1.2fr]">
+  <section class="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:grid-cols-[0.8fr_1.2fr] md:gap-8 md:py-20">
     <div class="reveal">
       <p class="kicker">{t.introKicker}</p>
       <h2 class="mt-3 font-serif text-4xl md:text-5xl">{t.introTitle}</h2>
@@ -110,10 +110,10 @@ const dishes = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 pb-20">
+  <section class="mx-auto max-w-6xl px-5 pb-12 md:pb-20">
     <p class="kicker">{t.dishesKicker}</p>
     <h2 class="mt-3 font-serif text-4xl">{t.dishesTitle}</h2>
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <ul class="snap-row mt-8 md:grid-cols-2 md:gap-4 lg:grid-cols-5">
       {
         dishes.map((dish) => (
           <li class="reveal border border-line bg-foam p-5">
@@ -140,7 +140,7 @@ const dishes = [
         <span> / 5</span>
         {' '}· {googleReviews.count} {t.reviewsCount}
       </p>
-      <ul class="mt-10 grid gap-4 md:grid-cols-3">
+      <ul class="snap-row mt-8 md:mt-10 md:grid-cols-3 md:gap-4">
         {
           googleReviews.items.map((review) => (
             <li class="border border-line bg-paper p-5">
@@ -162,7 +162,7 @@ const dishes = [
   </section>
 
   <section class="bg-ink text-paper">
-    <div class="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-[1fr_1fr] md:items-center">
+    <div class="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:grid-cols-[1fr_1fr] md:items-center md:gap-8 md:py-20">
       <div>
         <p class="text-sm tracking-[0.22em] text-paper/70">{t.kamomeKicker}</p>
         <h2 class="mt-3 font-serif text-4xl md:text-5xl">{t.kamomeTitle}</h2>
@@ -171,14 +171,14 @@ const dishes = [
           <a class="btn bg-paper text-ink hover:bg-paper-deep" href={localePath(lang, 'story')}>{t.kamomeLink}</a>
         </p>
       </div>
-      <p class="font-serif text-7xl leading-none md:text-8xl" lang="ja">かもめ食堂</p>
+      <p class="font-serif text-5xl leading-none md:text-8xl" lang="ja">かもめ食堂</p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 py-20" aria-labelledby="annoskuvat">
+  <section class="mx-auto max-w-6xl px-5 py-12 md:py-20" aria-labelledby="annoskuvat">
     <p class="kicker">{t.instagramKicker}</p>
     <h2 id="annoskuvat" class="mt-3 font-serif text-4xl">{t.photoTitle}</h2>
-    <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
+    <ul class="mt-6 grid grid-cols-2 gap-2 md:mt-8 md:grid-cols-3 md:gap-3">
       {
         photos.map((photo) => (
           <li>
@@ -199,9 +199,9 @@ const dishes = [
     </p>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 pb-20">
-    <div class="grid items-center gap-8 md:grid-cols-2">
-      <div class="reveal border border-line p-8">
+  <section class="mx-auto max-w-6xl px-5 pb-12 md:pb-20">
+    <div class="grid items-center gap-6 md:grid-cols-2 md:gap-8">
+      <div class="reveal border border-line p-5 md:p-8">
         <p class="kicker">{t.visitKicker}</p>
         <h2 class="mt-3 font-serif text-3xl">{t.visitTitle}</h2>
         <p class="mt-4 text-ink-soft">{t.visitDirections}</p>
@@ -210,7 +210,9 @@ const dishes = [
           <a href={restaurant.mapsDirections}>{t.ctaRoute}</a>
         </p>
       </div>
-      <MapEmbed lang={lang} />
+      <div class="order-first md:order-none">
+        <MapEmbed lang={lang} />
+      </div>
     </div>
   </section>
 </BaseLayout>

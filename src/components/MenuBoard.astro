@@ -32,6 +32,7 @@ function marks(allergens: string[] | undefined, veganOption?: boolean) {
 ---
 
 <div class="menu-board">
+  <div class="tab-row">
   {
     menus.map((menu, index) => (
       <input
@@ -48,8 +49,9 @@ function marks(allergens: string[] | undefined, veganOption?: boolean) {
       </label>
     ))
   }
+  </div>
 
-  <fieldset class="mt-8 border-0 p-0">
+  <fieldset class="mt-6 border-0 p-0 md:mt-8">
     <legend class="text-sm text-muted">{t.menuFilter}</legend>
     <div class="mt-3 flex flex-wrap gap-3">
       {
@@ -98,22 +100,25 @@ function marks(allergens: string[] | undefined, veganOption?: boolean) {
                   {
                     section.items.map((item) => (
                       <li
-                        class="grid gap-3 py-5 md:grid-cols-[1fr_auto] md:gap-8"
+                        class="py-5"
                         data-dish
                         data-allergens={marks(item.allergens, item.veganOption).join(',')}
                       >
                         <div>
-                          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          <div class="flex items-baseline justify-between gap-3">
                             <h4 class="font-serif text-xl">{textOf(item.name)}</h4>
-                            {lang !== 'ja' && item.name.ja !== textOf(item.name) && (
-                              <span class="text-muted" lang="ja">
-                                {item.name.ja}
-                              </span>
-                            )}
-                            {item.featured && (
-                              <span class="text-sm text-accent">{special}</span>
-                            )}
+                            {item.price && <p class="shrink-0 font-serif text-xl">{euro(item.price)}</p>}
                           </div>
+                          {(lang !== 'ja' && item.name.ja !== textOf(item.name)) || item.featured ? (
+                            <p class="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                              {lang !== 'ja' && item.name.ja !== textOf(item.name) && (
+                                <span class="text-muted" lang="ja">
+                                  {item.name.ja}
+                                </span>
+                              )}
+                              {item.featured && <span class="text-sm text-accent">{special}</span>}
+                            </p>
+                          ) : null}
                           {item.description && (
                             <p class="mt-2 max-w-2xl text-ink-soft">{textOf(item.description)}</p>
                           )}
@@ -157,9 +162,6 @@ function marks(allergens: string[] | undefined, veganOption?: boolean) {
                             </ul>
                           )}
                         </div>
-                        {item.price && (
-                          <p class="font-serif text-xl md:text-right">{euro(item.price)}</p>
-                        )}
                       </li>
                     ))
                   }

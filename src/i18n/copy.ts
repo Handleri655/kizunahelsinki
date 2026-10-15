@@ -9,6 +9,7 @@ const fi = {
   navStory: 'Tarina',
   navReserve: 'Varaa',
   navContact: 'Yhteys',
+  navSchool: 'Sushikoulu',
   heroEyebrow: 'Punavuori, Helsinki',
   heroLead: 'Side, joka tuo ihmiset yhteen.',
   heroSub:
@@ -116,6 +117,18 @@ const fi = {
     'Omakase Chef’s Table -juliste: 100 euroa henkilöltä, sushi, tempura, yakitori, uppopaisto ja jälkiruoka, 5–10 vierasta.',
   posterSchoolAlt:
     'Sushi School -juliste: 2–2,5 tuntia, 80 euroa henkilöltä, sushia ja misokeittoa, vähintään 5 vierasta.',
+  schoolLead: 'Tule mukaan Kizunan sushikouluun.',
+  schoolBody:
+    'Ravintolan sushikokki opastaa tekemään sushia ja kertoo sen historiasta ja taidosta. Sushikoulu sopii syntymäpäiville ja yhdessäoloon läheisten kanssa.',
+  schoolHighlights: 'Sushikoulun anti',
+  schoolDuration: '2–2,5 tuntia',
+  schoolPrice: '80 € henkilöltä',
+  schoolIncludes: 'Runsaasti sushia ja misokeitto',
+  schoolMinimum: 'Vähintään 5 vierasta',
+  schoolBook: 'Varaa nyt',
+  schoolBookNote: 'Varaa sähköpostilla tai soittamalla.',
+  schoolImageAlt:
+    'Sushikoulun juliste: kokki opastaa sushin tekoon, ravintolan kuva ja lokkilogo.',
   contactKicker: 'Löydä perille',
   contactTitle: 'Yhteystiedot',
   contactMapTitle: 'Kartta: Ravintola Kizuna, Pursimiehenkatu 12, Helsinki',
@@ -154,6 +167,9 @@ const fi = {
     'Kizuna tarkoittaa sidettä. Ravintola toimii elokuvan Ruokala Lokki kuvauspaikassa Helsingin Punavuoressa.',
   seoReserveTitle: 'Varaa pöytä | Ravintola KIZUNA',
   seoReserveDescription: 'Varaa pöytä Ravintola Kizunaan tai soita +358 44 952 2106.',
+  seoSchoolTitle: 'Sushikoulu | Ravintola KIZUNA',
+  seoSchoolDescription:
+    'Kizunan sushikoulu: 2–2,5 tuntia, 80 € henkilöltä, sushia ja misokeittoa. Vähintään 5 vierasta.',
   seoContactTitle: 'Yhteystiedot | Ravintola KIZUNA',
   seoContactDescription:
     'Pursimiehenkatu 12, 00150 Helsinki. Avoinna ma–pe 11–22 ja la 13–22. Su suljettu.',
@@ -175,6 +191,7 @@ const en: typeof fi = {
   navStory: 'Story',
   navReserve: 'Book',
   navContact: 'Visit',
+  navSchool: 'Sushi School',
   heroEyebrow: 'Punavuori, Helsinki',
   heroLead: 'The bond that brings people together.',
   heroSub:
@@ -282,6 +299,17 @@ const en: typeof fi = {
     'Omakase Chef’s Table poster: 100 euros per person, sushi, tempura, yakitori, deep fry and dessert, 5 to 10 guests.',
   posterSchoolAlt:
     'Sushi School poster: 2 to 2.5 hours, 80 euros per person, sushi and miso soup, at least 5 guests.',
+  schoolLead: 'Join the fun at our Sushi School.',
+  schoolBody:
+    'Our sushi chef will guide you through crafting sushi and share its history and art. It is a good activity for birthday parties or get-togethers with loved ones.',
+  schoolHighlights: 'Sushi School highlights',
+  schoolDuration: '2–2.5 hours',
+  schoolPrice: '€80 per person',
+  schoolIncludes: 'Plenty of sushi and miso soup',
+  schoolMinimum: 'Minimum 5 guests',
+  schoolBook: 'Book now',
+  schoolBookNote: 'Book by email or phone.',
+  schoolImageAlt: 'Sushi School poster: a chef guiding sushi making, with a photo of the restaurant and the seagull logo.',
   contactKicker: 'Find us',
   contactTitle: 'Contact',
   contactMapTitle: 'Map: Ravintola Kizuna, Pursimiehenkatu 12, Helsinki',
@@ -320,6 +348,9 @@ const en: typeof fi = {
     'Kizuna means bond. The restaurant is in a filming location of Kamome Shokudo in Punavuori, Helsinki.',
   seoReserveTitle: 'Reserve a table | Ravintola KIZUNA',
   seoReserveDescription: 'Reserve a table at Ravintola Kizuna, or call +358 44 952 2106.',
+  seoSchoolTitle: 'Sushi School | Ravintola KIZUNA',
+  seoSchoolDescription:
+    'Kizuna Sushi School: 2–2.5 hours, €80 per person, sushi and miso soup. Minimum 5 guests.',
   seoContactTitle: 'Contact | Ravintola KIZUNA',
   seoContactDescription:
     'Pursimiehenkatu 12, 00150 Helsinki. Open Mon–Fri 11–22 and Sat 13–22. Closed Sunday.',
@@ -341,6 +372,7 @@ const ja: typeof fi = {
   navStory: '物語',
   navReserve: '予約',
   navContact: 'アクセス',
+  navSchool: '寿司教室',
   heroEyebrow: 'プナヴオリ、ヘルシンキ',
   heroLead: '人と人をつなぐ、絆。',
   heroSub: '北欧の食材を使った和食。寿司、ラーメン、焼鳥、うなぎ、自家製豆腐。',
@@ -444,6 +476,17 @@ const ja: typeof fi = {
   posterOmakaseAlt:
     'おまかせシェフズテーブルの案内。お一人100ユーロ。寿司、天ぷら、焼鳥、揚げ物、デザート。5名から10名。',
   posterSchoolAlt: '寿司教室の案内。2時間から2時間半、お一人80ユーロ。寿司と味噌汁。5名から。',
+  schoolLead: '寿司教室で一緒に楽しみましょう。',
+  schoolBody:
+    '店の寿司職人が、おいしい寿司の作り方を案内し、その歴史と技を伝えます。お誕生日や、大切な人との集まりに向いています。',
+  schoolHighlights: '寿司教室の内容',
+  schoolDuration: '2時間から2時間半',
+  schoolPrice: 'お一人80ユーロ',
+  schoolIncludes: '寿司と味噌汁をたっぷり',
+  schoolMinimum: '5名から',
+  schoolBook: '予約する',
+  schoolBookNote: 'メールかお電話でご予約ください。',
+  schoolImageAlt: '寿司教室の案内。職人の指導、店の写真、カモメのロゴ。',
   contactKicker: '道順',
   contactTitle: 'アクセス',
   contactMapTitle: '地図: Ravintola Kizuna, Pursimiehenkatu 12, Helsinki',
@@ -480,6 +523,8 @@ const ja: typeof fi = {
   seoStoryDescription: 'Kizunaは絆。ヘルシンキ・プナヴオリ、映画「かもめ食堂」のロケ地にある店です。',
   seoReserveTitle: '予約 | Ravintola KIZUNA',
   seoReserveDescription: 'Ravintola KIZUNAの席を予約する。電話 +358 44 952 2106。',
+  seoSchoolTitle: '寿司教室 | Ravintola KIZUNA',
+  seoSchoolDescription: 'KIZUNAの寿司教室。2時間から2時間半、お一人80ユーロ。寿司と味噌汁。5名から。',
   seoContactTitle: 'アクセス | Ravintola KIZUNA',
   seoContactDescription: 'Pursimiehenkatu 12, 00150 Helsinki。月–金 11–22、土 13–22。日曜定休。',
   openOpen: '営業中',
