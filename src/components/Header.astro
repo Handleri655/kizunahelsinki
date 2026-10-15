@@ -1,0 +1,83 @@
+---
+import { copy } from '../i18n/copy';
+import { localeLabels, localePath, locales, type Lang, type RouteId } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  route: RouteId;
+}
+
+const { lang, route } = Astro.props;
+const t = copy[lang];
+const links: { id: RouteId; label: string }[] = [
+  { id: 'menu', label: t.navMenu },
+  { id: 'story', label: t.navStory },
+  { id: 'reserve', label: t.navReserve },
+  { id: 'contact', label: t.navContact },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line/80 bg-paper/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+    <a href={localePath(lang, 'home')} class="group flex items-center gap-3 no-underline">
+      <span
+        class="grid h-10 w-10 place-items-center rounded-full border border-accent text-sm text-accent"
+        aria-hidden="true">絆</span>
+      <span class="font-serif text-lg tracking-[0.18em] text-ink">KIZUNA</span>
+    </a>
+    <nav aria-label={t.navPrimary} class="hidden items-center gap-6 md:flex">
+      {
+        links.map((link) => {
+          const href = localePath(lang, link.id);
+          const current = route === link.id;
+          return (
+            <a
+              href={href}
+              aria-current={current ? 'page' : undefined}
+              class:list={['no-underline', current ? 'text-accent' : 'text-ink-soft hover:text-ink']}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+    <div class="flex items-center gap-3">
+      <nav aria-label={t.langLabel} class="flex items-center gap-2 text-sm">
+        {
+          locales.map((locale) => (
+            <a
+              href={localePath(locale, route)}
+              hrefLang={locale}
+              lang={locale}
+              aria-current={locale === lang ? 'true' : undefined}
+              class:list={[
+                'no-underline',
+                locale === lang ? 'text-ink' : 'text-muted hover:text-ink',
+              ]}
+            >
+              {localeLabels[locale]}
+            </a>
+          ))
+        }
+      </nav>
+      <a class="btn hidden md:inline-flex" href={localePath(lang, 'reserve')}>{t.ctaReserve}</a>
+    </div>
+  </div>
+  <nav aria-label={t.navPrimary} class="flex gap-4 overflow-x-auto px-5 pb-3 md:hidden">
+    {
+      links.map((link) => (
+        <a
+          href={localePath(lang, link.id)}
+          aria-current={route === link.id ? 'page' : undefined}
+          class:list={[
+            'shrink-0 no-underline',
+            route === link.id ? 'text-accent' : 'text-ink-soft',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

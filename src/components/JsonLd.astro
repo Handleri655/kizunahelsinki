@@ -1,0 +1,52 @@
+---
+import { restaurant } from '../data/restaurant';
+import { localePath, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const site = Astro.site ?? new URL('https://www.kizunahelsinki.com');
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: restaurant.name,
+  image: new URL('/og.png', site).href,
+  url: new URL(localePath(lang, 'home'), site).href,
+  telephone: restaurant.phoneTel,
+  email: restaurant.email,
+  servesCuisine: 'Japanese',
+  acceptsReservations: restaurant.reservation,
+  menu: new URL(localePath(lang, 'menu'), site).href,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: restaurant.street,
+    addressLocality: restaurant.city,
+    postalCode: restaurant.postalCode,
+    addressCountry: restaurant.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: restaurant.lat,
+    longitude: restaurant.lng,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '11:00',
+      closes: '22:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '13:00',
+      closes: '22:00',
+    },
+  ],
+  sameAs: [restaurant.instagram],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

@@ -1,0 +1,226 @@
+---
+import { getCollection } from 'astro:content';
+import { pdfMenus } from '../data/restaurant';
+import { copy } from '../i18n/copy';
+import { euro, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const menus = (await getCollection('menu')).sort((a, b) => a.data.order - b.data.order);
+const special = 'Special';
+
+const allergenLabel = {
+  G: t.allergenG,
+  V: t.allergenV,
+  VE: t.allergenVE,
+  L: t.allergenL,
+};
+
+function textOf(value: { fi: string; en: string; ja: string }) {
+  return value[lang];
+}
+
+function marks(allergens: string[] | undefined, veganOption?: boolean) {
+  const list = [...(allergens ?? [])];
+  if (veganOption && !list.includes('VE')) list.push('VE');
+  return list;
+}
+---
+
+<div class="menu-board">
+  {
+    menus.map((menu, index) => (
+      <input
+        class="tab-input"
+        type="radio"
+        name="menu-tab"
+        id={`tab-${menu.id}`}
+        data-menu={menu.id}
+        checked={index === 0}
+        aria-controls={`panel-${menu.id}`}
+      />
+      <label class="tab-label" id={`label-${menu.id}`} for={`tab-${menu.id}`}>
+        {textOf(menu.data.title)}
+      </label>
+    ))
+  }
+
+  <fieldset class="mt-8 border-0 p-0">
+    <legend class="text-sm text-muted">{t.menuFilter}</legend>
+    <div class="mt-3 flex flex-wrap gap-3">
+      {
+        (['G', 'V', 'VE', 'L'] as const).map((code) => (
+          <label class="inline-flex min-h-11 items-center gap-2 border border-line bg-foam px-3">
+            <input type="checkbox" value={code} data-allergen-filter />
+            <span>
+              {code} · {allergenLabel[code]}
+            </span>
+          </label>
+        ))
+      }
+    </div>
+    <p class="mt-2 text-sm text-muted">{t.menuFilterHint}</p>
+  </fieldset>
+
+  {
+    menus.map((menu) => {
+      const pdf = pdfMenus.find((item) => item.id === menu.id);
+      return (
+        <section
+          class="panel"
+          id={`panel-${menu.id}`}
+          aria-labelledby={`label-${menu.id}`}
+          data-panel
+        >
+          <header class="mt-10 max-w-3xl">
+            {menu.data.when && <p class="kicker">{textOf(menu.data.when)}</p>}
+            <h2 class="mt-3 font-serif text-4xl">{textOf(menu.data.title)}</h2>
+            {menu.data.intro && <p class="mt-4 text-ink-soft">{textOf(menu.data.intro)}</p>}
+            {pdf && (
+              <p class="mt-4">
+                <a href={pdf.href}>{t.menuPdf}</a>
+              </p>
+            )}
+          </header>
+          <p class="mt-8 hidden border border-line bg-foam px-4 py-3" data-empty>
+            {t.menuEmpty}
+          </p>
+          {
+            menu.data.sections.map((section) => (
+              <div class="mt-12" data-section>
+                <h3 class="font-serif text-2xl">{textOf(section.title)}</h3>
+                {section.note && <p class="mt-3 max-w-3xl text-ink-soft">{textOf(section.note)}</p>}
+                <ul class="mt-6 divide-y divide-line border-t border-line">
+                  {
+                    section.items.map((item) => (
+                      <li
+                        class="grid gap-3 py-5 md:grid-cols-[1fr_auto] md:gap-8"
+                        data-dish
+                        data-allergens={marks(item.allergens, item.veganOption).join(',')}
+                      >
+                        <div>
+                          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <h4 class="font-serif text-xl">{textOf(item.name)}</h4>
+                            {lang !== 'ja' && item.name.ja !== textOf(item.name) && (
+                              <span class="text-muted" lang="ja">
+                                {item.name.ja}
+                              </span>
+                            )}
+                            {item.featured && (
+                              <span class="text-sm text-accent">{special}</span>
+                            )}
+                          </div>
+                          {item.description && (
+                            <p class="mt-2 max-w-2xl text-ink-soft">{textOf(item.description)}</p>
+                          )}
+                          {item.choices && <p class="mt-2 text-sm">{textOf(item.choices)}</p>}
+                          {item.unit && <p class="mt-1 text-sm text-muted">{textOf(item.unit)}</p>}
+                          {item.veganOption && (
+                            <p class="mt-2 text-sm text-accent">{t.menuVeganOption}</p>
+                          )}
+                          {item.extras && item.extras.length > 0 && (
+                            <p class="mt-2 text-sm text-muted">
+                              {t.menuExtras}:{' '}
+                              {item.extras
+                                .map((extra) => `${textOf(extra.name)} +${euro(extra.price)}`)
+                                .join(' · ')}
+                            </p>
+                          )}
+                          {item.options && (
+                            <ul class="mt-3 space-y-1 text-sm">
+                              {item.options.map((option) => (
+                                <li class="flex justify-between gap-4">
+                                  <span>
+                                    {textOf(option.name)}
+                                    {option.allergens && option.allergens.length > 0 && (
+                                      <span class="text-muted"> ({option.allergens.join(', ')})</span>
+                                    )}
+                                  </span>
+                                  <span>{euro(option.price)}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {item.allergens && item.allergens.length > 0 && (
+                            <ul class="mt-3 flex flex-wrap gap-2" aria-label={t.menuFilter}>
+                              {item.allergens.map((code) => (
+                                <li class="border border-line px-2 py-0.5 text-xs tracking-wide">
+                                  <abbr title={allergenLabel[code]} class="no-underline">
+                                    {code}
+                                  </abbr>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                        {item.price && (
+                          <p class="font-serif text-xl md:text-right">{euro(item.price)}</p>
+                        )}
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            ))
+          }
+        </section>
+      );
+    })
+  }
+</div>
+
+<script>
+  const board = document.querySelector('.menu-board');
+  if (board) {
+    const radios = [...board.querySelectorAll<HTMLInputElement>('.tab-input')];
+
+    const syncFromHash = () => {
+      const id = location.hash.replace('#', '');
+      const match = radios.find((radio) => radio.dataset.menu === id);
+      if (match) match.checked = true;
+    };
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        if (radio.checked && radio.dataset.menu) {
+          history.replaceState(null, '', `#${radio.dataset.menu}`);
+        }
+      });
+    });
+
+    const applyFilter = () => {
+      const selected = [
+        ...board.querySelectorAll<HTMLInputElement>('[data-allergen-filter]:checked'),
+      ].map((input) => input.value);
+
+      board.querySelectorAll<HTMLElement>('[data-panel]').forEach((panel) => {
+        let visible = 0;
+        panel.querySelectorAll<HTMLElement>('[data-dish]').forEach((dish) => {
+          const tags = (dish.dataset.allergens ?? '').split(',').filter(Boolean);
+          const ok = selected.every((code) => tags.includes(code));
+          dish.hidden = !ok;
+          if (ok) visible += 1;
+        });
+        panel.querySelectorAll<HTMLElement>('[data-section]').forEach((section) => {
+          const any = [...section.querySelectorAll<HTMLElement>('[data-dish]')].some(
+            (dish) => !dish.hidden,
+          );
+          section.hidden = !any;
+        });
+        const empty = panel.querySelector<HTMLElement>('[data-empty]');
+        if (empty) empty.hidden = visible !== 0;
+      });
+    };
+
+    board.querySelectorAll('[data-allergen-filter]').forEach((input) => {
+      input.addEventListener('change', applyFilter);
+    });
+
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+  }
+</script>

@@ -1,0 +1,295 @@
+{
+  "order": 4,
+  "title": { "fi": "Juomat", "en": "Drinks", "ja": "ドリンク" },
+  "intro": {
+    "fi": "Lasin ja pullon hinta on merkitty vinoviivalla, jos molemmat ovat listalla.",
+    "en": "Where a glass and a bottle are both listed, the prices are separated by a slash.",
+    "ja": "グラスとボトルの両方があるものは、価格をスラッシュで区切っています。"
+  },
+  "sections": [
+    {
+      "title": { "fi": "Maistelut", "en": "Tasting sets", "ja": "テイスティング" },
+      "items": [
+        {
+          "name": { "fi": "Juomapaketti", "en": "Drink package", "ja": "ドリンクパッケージ" },
+          "description": {
+            "fi": "Kirin-olut 250 ml, shochu 6 cl, sake 8 cl ja umeshu 6 cl.",
+            "en": "Kirin beer 250 ml, shochu 6 cl, sake 8 cl and umeshu 6 cl.",
+            "ja": "キリンビール250ml、焼酎6cl、日本酒8cl、梅酒6cl。"
+          },
+          "price": "38"
+        },
+        {
+          "name": { "fi": "Umeshu-maistelu", "en": "Umeshu tasting", "ja": "梅酒テイスティング" },
+          "description": {
+            "fi": "Kahdeksan erilaista umeshua, 2 cl kutakin.",
+            "en": "Eight different umeshu, 2 cl each.",
+            "ja": "8種類の梅酒を各2cl。"
+          },
+          "price": "30"
+        },
+        {
+          "name": { "fi": "Sake-maistelu", "en": "Sake tasting", "ja": "日本酒テイスティング" },
+          "description": {
+            "fi": "Kolme erilaista sakea, 6 cl kutakin.",
+            "en": "Three different kinds of sake, 6 cl each.",
+            "ja": "3種類の日本酒を各6cl。"
+          },
+          "price": "27"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Olut", "en": "Beer", "ja": "ビール" },
+      "items": [
+        {
+          "name": { "fi": "Karhu 5.3", "en": "Karhu 5.3", "ja": "カルフ 5.3" },
+          "description": { "fi": "Suomalainen olut, 5,3 %. 330 ml.", "en": "Finnish beer, 5.3%. 330 ml.", "ja": "フィンランドのビール、5.3%。330ml。" },
+          "price": "9"
+        },
+        {
+          "name": { "fi": "Kirin", "en": "Kirin", "ja": "キリン" },
+          "description": { "fi": "Japanilainen hanakalja, 4,7 %.", "en": "Japanese draft beer, 4.7%.", "ja": "日本の生ビール、4.7%。" },
+          "unit": { "fi": "250 ml / 500 ml", "en": "250 ml / 500 ml", "ja": "250ml / 500ml" },
+          "price": "8,50 / 10"
+        },
+        {
+          "name": { "fi": "Alkoholiton olut", "en": "Non-alcohol beer", "ja": "ノンアルコールビール" },
+          "description": { "fi": "Japanilainen, 0,0 %. 330 ml.", "en": "Japanese, 0.0%. 330 ml.", "ja": "日本のもの、0.0%。330ml。" },
+          "price": "5"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Cocktailit", "en": "Cocktails", "ja": "カクテル" },
+      "items": [
+        {
+          "name": { "fi": "Napue gin tonic", "en": "Napue gin and tonic", "ja": "ナプエ ジントニック" },
+          "description": { "fi": "Suomalaista giniä ja tonicia.", "en": "Finnish gin with tonic.", "ja": "フィンランドのジンとトニック。" },
+          "price": "12"
+        },
+        {
+          "name": { "fi": "Shochu lemon sour", "en": "Shochu lemon sour", "ja": "焼酎レモンサワー" },
+          "description": { "fi": "Shochu ja talon sitruunasiirappi.", "en": "Shochu with homemade lemon syrup.", "ja": "焼酎と自家製レモンシロップ。" },
+          "price": "13"
+        },
+        {
+          "name": { "fi": "Umeshu sangria", "en": "Umeshu sangria", "ja": "梅酒サングリア" },
+          "description": { "fi": "Umeshu, valkoviini, sitruuna ja sooda.", "en": "Umeshu with white wine, lemon and soda.", "ja": "梅酒、白ワイン、レモン、ソーダ。" },
+          "price": "12"
+        },
+        {
+          "name": { "fi": "Whisky highball", "en": "Whisky highball", "ja": "ウイスキーハイボール" },
+          "description": { "fi": "Viski, sooda ja sitruuna.", "en": "Whisky with soda and lemon.", "ja": "ウイスキー、ソーダ、レモン。" },
+          "price": "15"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Väkevät", "en": "Spirits", "ja": "蒸留酒" },
+      "items": [
+        {
+          "name": { "fi": "Hibiki", "en": "Hibiki", "ja": "響" },
+          "description": { "fi": "Japanilainen viski, 43 %. 40 ml.", "en": "Japanese whisky, 43%. 40 ml.", "ja": "ジャパニーズウイスキー、43%。40ml。" },
+          "price": "13"
+        },
+        {
+          "name": { "fi": "Napue Gin", "en": "Napue Gin", "ja": "ナプエ ジン" },
+          "description": { "fi": "Suomalainen gin, 46,3 %. 40 ml.", "en": "Finnish gin, 46.3%. 40 ml.", "ja": "フィンランドのジン、46.3%。40ml。" },
+          "price": "13"
+        },
+        {
+          "name": { "fi": "Tonic", "en": "Tonic water", "ja": "トニックウォーター" },
+          "unit": { "fi": "200 ml", "en": "200 ml", "ja": "200ml" },
+          "price": "3"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Sake", "en": "Sake", "ja": "日本酒" },
+      "note": {
+        "fi": "Riisistä ja kojista käytetty perinteinen juoma. Mitä enemmän riisiä on kiillotettu, sitä makeampi ja kirkkaampi sake yleensä on.",
+        "en": "A traditional drink fermented from rice and koji. A higher polishing ratio usually makes the sake sweeter and clearer.",
+        "ja": "米と麹から醸した伝統的な酒。精米歩合が高いほど、一般に甘く澄んだ酒になります。"
+      },
+      "items": [
+        {
+          "name": { "fi": "MIO", "en": "MIO", "ja": "澪" },
+          "description": {
+            "fi": "Kuohuva sake, 5 %. Kevyt ja hieman makea. Listalla suositellaan siian sashimin ja nigirin kanssa. 300 ml.",
+            "en": "Sparkling sake, 5%. Light, with a gentle sweetness. The menu suggests it with siika sashimi and siika nigiri. 300 ml.",
+            "ja": "スパークリング日本酒、5%。軽く、やさしい甘み。シーカの刺身と握りに合わせると案内されています。300ml。"
+          },
+          "price": "20",
+          "featured": true
+        },
+        {
+          "name": { "fi": "Dassai 23", "en": "Dassai 23", "ja": "獺祭 23" },
+          "description": {
+            "fi": "Täyteläinen ja makea, melonin ja persikan aromeja. Kiillotus 23 %, 16 %. Tarjoillaan kylmänä.",
+            "en": "Rich and sweet, with melon and peach aromas. 23% polishing, 16% abv. Served cold.",
+            "ja": "メロンと桃の香り。精米23%、度数16%。冷酒。"
+          },
+          "unit": { "fi": "80 ml / 720 ml", "en": "80 ml / 720 ml", "ja": "80ml / 720ml" },
+          "price": "16 / 140"
+        },
+        {
+          "name": { "fi": "Kubota Senjyu", "en": "Kubota Senjyu", "ja": "久保田 千寿" },
+          "description": {
+            "fi": "Kuiva ja täyteläinen, maanläheisiä sävyjä. Kiillotus 50 %, 15 %. Kylmänä.",
+            "en": "Dry and rich, with earthy notes. 50% polishing, 15% abv. Served cold.",
+            "ja": "辛口でコクがあり、土のニュアンス。精米50%、度数15%。冷酒。"
+          },
+          "unit": { "fi": "80 ml / 720 ml", "en": "80 ml / 720 ml", "ja": "80ml / 720ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Karatamba", "en": "Karatamba", "ja": "辛丹波" },
+          "description": {
+            "fi": "Kuiva ja puhdas, paljon umamia. Kiillotus 70 %, 15,4 %. Lämpimänä.",
+            "en": "Dry and clean, with ample umami. 70% polishing, 15.4% abv. Served hot.",
+            "ja": "辛口ですっきり、旨味がある。精米70%、度数15.4%。熱燗。"
+          },
+          "unit": { "fi": "80 ml / 720 ml", "en": "80 ml / 720 ml", "ja": "80ml / 720ml" },
+          "price": "10 / 80"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Viini", "en": "Wine", "ja": "ワイン" },
+      "items": [
+        {
+          "name": { "fi": "Vicarage Lane", "en": "Vicarage Lane", "ja": "ヴィカレッジ・レーン" },
+          "description": { "fi": "Sauvignon blanc, Uusi-Seelanti, 13,5 %.", "en": "Sauvignon blanc, New Zealand, 13.5%.", "ja": "ソーヴィニヨン・ブラン、ニュージーランド、13.5%。" },
+          "unit": { "fi": "160 ml / 750 ml", "en": "160 ml / 750 ml", "ja": "160ml / 750ml" },
+          "price": "10 / 45"
+        },
+        {
+          "name": { "fi": "X-berg", "en": "X-berg", "ja": "X-berg" },
+          "description": { "fi": "Riesling, Saksa, 12,0 %.", "en": "Riesling, Germany, 12.0%.", "ja": "リースリング、ドイツ、12.0%。" },
+          "unit": { "fi": "160 ml / 750 ml", "en": "160 ml / 750 ml", "ja": "160ml / 750ml" },
+          "price": "12 / 52,5"
+        },
+        {
+          "name": { "fi": "Gato Negro", "en": "Gato Negro", "ja": "ガト・ネグロ" },
+          "description": { "fi": "Pinot noir, Chile, 13,0 %. 250 ml.", "en": "Pinot noir, Chile, 13.0%. 250 ml.", "ja": "ピノ・ノワール、チリ、13.0%。250ml。" },
+          "price": "16"
+        },
+        {
+          "name": { "fi": "Valpolicella", "en": "Valpolicella", "ja": "ヴァルポリチェッラ" },
+          "description": { "fi": "Corvina, rondinella ja molinara, Italia, 12,0 %. 750 ml.", "en": "Corvina, Rondinella and Molinara, Italy, 12.0%. 750 ml.", "ja": "コルヴィーナ、ロンディネッラ、モリナーラ。イタリア、12.0%。750ml。" },
+          "price": "52,5"
+        },
+        {
+          "name": { "fi": "Cordon Negro", "en": "Cordon Negro", "ja": "コルドン・ネグロ" },
+          "description": { "fi": "Cava, Espanja, 11,5 %.", "en": "Cava, Spain, 11.5%.", "ja": "カバ、スペイン、11.5%。" },
+          "unit": { "fi": "200 ml / 750 ml", "en": "200 ml / 750 ml", "ja": "200ml / 750ml" },
+          "price": "15 / 55"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Umeshu", "en": "Umeshu", "ja": "梅酒" },
+      "note": {
+        "fi": "Luumulikööri, jossa ume-luumuja on liotettu sokerissa ja alkoholissa. Tarjoillaan toiveen mukaan jäillä, soodalla, kylmällä vedellä tai kuumana.",
+        "en": "Sweet plum liqueur made by steeping ume plums in sugar and alcohol. Served on request over ice, with soda, cold water or hot water.",
+        "ja": "梅を砂糖とアルコールに漬けた甘口の梅酒。ご希望でロック、ソーダ、水割り、お湯割り。"
+      },
+      "items": [
+        {
+          "name": { "fi": "Suppai", "en": "Suppai", "ja": "すっぱい" },
+          "description": { "fi": "Tasapainoinen, ei liian makea, selvästi hapan. 11 %.", "en": "Balanced, not too sweet, and extra sour. 11%.", "ja": "甘すぎず、酸味が立つ。11%。" },
+          "unit": { "fi": "60 ml / 720 ml", "en": "60 ml / 720 ml", "ja": "60ml / 720ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Nigori", "en": "Nigori", "ja": "にごり" },
+          "description": { "fi": "Hapan, ei liian makea, persikkapuuretta. 10 %.", "en": "Tart, not too sweet, with peach puree. 10%.", "ja": "酸味があり甘すぎない。桃ピューレ入り。10%。" },
+          "unit": { "fi": "60 ml / 720 ml", "en": "60 ml / 720 ml", "ja": "60ml / 720ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Choya", "en": "Choya", "ja": "チョーヤ" },
+          "description": { "fi": "Kevyt ja raikas. 10 %.", "en": "Light and fresh. 10%.", "ja": "軽くフレッシュ。10%。" },
+          "unit": { "fi": "60 ml / 1000 ml", "en": "60 ml / 1000 ml", "ja": "60ml / 1000ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Hannyatou", "en": "Hannyatou", "ja": "般若湯" },
+          "description": { "fi": "Umeshu ja chili. 10 %. 60 ml.", "en": "Umeshu with chili. 10%. 60 ml.", "ja": "梅酒と唐辛子。10%。60ml。" },
+          "price": "10"
+        },
+        {
+          "name": { "fi": "Kodakara", "en": "Kodakara", "ja": "子宝" },
+          "description": { "fi": "Täyteläinen, kypsää umea, mantelia ja marsipaania. 11 %.", "en": "Rich and deep, ripe ume with almond and marzipan. 11%.", "ja": "熟した梅、アーモンドとマジパンのニュアンス。11%。" },
+          "unit": { "fi": "60 ml / 750 ml", "en": "60 ml / 750 ml", "ja": "60ml / 750ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Ninki", "en": "Ninki", "ja": "人気" },
+          "description": { "fi": "Hedelmää, mantelia ja marsipaania. 18 %.", "en": "Fruity, with almond and marzipan. 18%.", "ja": "フルーティーで、アーモンドとマジパン。18%。" },
+          "unit": { "fi": "60 ml / 500 ml", "en": "60 ml / 500 ml", "ja": "60ml / 500ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Genshu", "en": "Genshu", "ja": "原酒" },
+          "description": { "fi": "Hedelmää ja marsipaania, mieto hapokkuus. 19 %.", "en": "Fruity and marzipan, with a mild tartness. 19%.", "ja": "フルーティーでマジパン、穏やかな酸味。19%。" },
+          "unit": { "fi": "60 ml / 720 ml", "en": "60 ml / 720 ml", "ja": "60ml / 720ml" },
+          "price": "10 / 80"
+        },
+        {
+          "name": { "fi": "Mii no umeshu", "en": "Mii no umeshu", "ja": "みいの梅酒" },
+          "description": { "fi": "Raikas, makean ja happaman tasapaino. 10 %. 60 ml.", "en": "Refreshing, with a balance of sweet and sour. 10%. 60 ml.", "ja": "甘酸のバランスがよい。10%。60ml。" },
+          "price": "10"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Virvoitusjuomat", "en": "Soft drinks", "ja": "ソフトドリンク" },
+      "items": [
+        { "name": { "fi": "Kivennäisvesi", "en": "Sparkling water", "ja": "スパークリングウォーター" }, "unit": { "fi": "200 ml", "en": "200 ml", "ja": "200ml" }, "price": "3" },
+        { "name": { "fi": "Coca-Cola", "en": "Coca-Cola", "ja": "コカ・コーラ" }, "unit": { "fi": "330 ml", "en": "330 ml", "ja": "330ml" }, "price": "5" },
+        { "name": { "fi": "Omena-mustikkamehu", "en": "Apple and blueberry juice", "ja": "りんご・ブルーベリージュース" }, "unit": { "fi": "200 ml", "en": "200 ml", "ja": "200ml" }, "price": "5" },
+        { "name": { "fi": "Ailan limonadi", "en": "Aila's lemonade", "ja": "アイラのレモネード" }, "description": { "fi": "Itsetehty. 200 ml.", "en": "Homemade. 200 ml.", "ja": "自家製。200ml。" }, "price": "6" },
+        { "name": { "fi": "Ramune", "en": "Ramune", "ja": "ラムネ" }, "description": { "fi": "Japanilainen sooda. 200 ml.", "en": "Japanese soda. 200 ml.", "ja": "日本のソーダ。200ml。" }, "price": "5" }
+      ]
+    },
+    {
+      "title": { "fi": "Kahvi", "en": "Coffee", "ja": "コーヒー" },
+      "items": [
+        { "name": { "fi": "Kahvi", "en": "Coffee", "ja": "コーヒー" }, "price": "4" },
+        { "name": { "fi": "Espresso", "en": "Single espresso", "ja": "エスプレッソ" }, "price": "4" },
+        { "name": { "fi": "Tuplaespresso", "en": "Double espresso", "ja": "ダブルエスプレッソ" }, "price": "5" },
+        { "name": { "fi": "Cappuccino", "en": "Cappuccino", "ja": "カプチーノ" }, "price": "5" },
+        { "name": { "fi": "Jääkahvi", "en": "Ice coffee", "ja": "アイスコーヒー" }, "price": "5" },
+        { "name": { "fi": "Jäälatte", "en": "Iced café latte", "ja": "アイスカフェラテ" }, "price": "6" },
+        { "name": { "fi": "Kaakao", "en": "Hot chocolate", "ja": "ホットチョコレート" }, "price": "5" }
+      ]
+    },
+    {
+      "title": { "fi": "Tee", "en": "Tea", "ja": "お茶" },
+      "note": {
+        "fi": "Tee tulee kannussa.",
+        "en": "Tea is served in a pot.",
+        "ja": "お茶はポットで出します。"
+      },
+      "items": [
+        { "name": { "fi": "Sencha", "en": "Sencha", "ja": "煎茶" }, "price": "5" },
+        { "name": { "fi": "Yuzu-sencha", "en": "Yuzu sencha", "ja": "柚子煎茶" }, "price": "5" },
+        { "name": { "fi": "Genmaicha", "en": "Genmaicha", "ja": "玄米茶" }, "price": "5" },
+        { "name": { "fi": "Houjicha", "en": "Houjicha", "ja": "ほうじ茶" }, "price": "5" },
+        { "name": { "fi": "Assam", "en": "Assam tea", "ja": "アッサム" }, "price": "5" },
+        {
+          "name": { "fi": "The Mirabelles", "en": "The Mirabelles", "ja": "テ・ミラベル" },
+          "description": {
+            "fi": "Kofeiiniton. Luumua, omenaa, sitruunaruohoa, mansikanlehteä, malvaa ja kehäkukkaa.",
+            "en": "Caffeine free. Plum, apple, lemongrass, wild strawberry leaves, mallow and calendula.",
+            "ja": "カフェインレス。プラム、りんご、レモングラス、ワイルドストロベリーの葉、マロウ、カレンデュラ。"
+          },
+          "price": "5"
+        },
+        { "name": { "fi": "Matcha latte", "en": "Matcha latte", "ja": "抹茶ラテ" }, "price": "6" }
+      ]
+    }
+  ]
+}

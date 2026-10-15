@@ -1,0 +1,65 @@
+---
+import { copy } from '../i18n/copy';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<p class="open-status inline-flex items-center gap-2 text-sm" data-open-status data-lang={lang}>
+  <span class="h-2 w-2 rounded-full bg-muted" data-open-dot aria-hidden="true"></span>
+  <span data-open-label>{t.hoursLast}</span>
+</p>
+
+<script>
+  const labels = {
+    fi: { open: 'Avoinna nyt', closed: 'Suljettu nyt', kitchen: 'Viimeinen tilaus on mennyt' },
+    en: { open: 'Open now', closed: 'Closed now', kitchen: 'Last order has passed' },
+    ja: { open: '営業中', closed: '営業時間外', kitchen: 'ラストオーダーは終了しました' },
+  } as const;
+
+  function helsinkiNow(date: Date) {
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Helsinki',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+      })
+        .formatToParts(date)
+        .map((part) => [part.type, part.value]),
+    );
+    const days: Record<string, number> = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 0 };
+    return {
+      day: days[parts.weekday] ?? 0,
+      minutes: Number(parts.hour) * 60 + Number(parts.minute),
+    };
+  }
+
+  function state(day: number, minutes: number) {
+    if (day === 0) return 'closed' as const;
+    const opens = day === 6 ? 13 * 60 : 11 * 60;
+    if (minutes < opens || minutes >= 22 * 60) return 'closed' as const;
+    if (minutes >= 21 * 60) return 'kitchen' as const;
+    return 'open' as const;
+  }
+
+  const { day, minutes } = helsinkiNow(new Date());
+  const key = state(day, minutes);
+
+  document.querySelectorAll<HTMLElement>('[data-open-status]').forEach((node) => {
+    const lang = node.dataset.lang === 'en' || node.dataset.lang === 'ja' ? node.dataset.lang : 'fi';
+    const label = node.querySelector('[data-open-label]');
+    if (label) label.textContent = labels[lang][key];
+    node.dataset.state = key;
+    const dot = node.querySelector('[data-open-dot]');
+    if (dot instanceof HTMLElement) {
+      dot.style.background = key === 'open' ? '#2f6b45' : key === 'kitchen' ? '#9d3419' : '#6a5f54';
+    }
+  });
+</script>

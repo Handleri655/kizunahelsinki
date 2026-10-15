@@ -1,0 +1,42 @@
+---
+import { restaurant } from '../data/restaurant';
+import { copy } from '../i18n/copy';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<div data-map>
+  <button type="button" class="btn-ghost" data-map-button>{t.ctaMap}</button>
+  <div class="mt-4 hidden" data-map-frame></div>
+</div>
+
+<script define:vars={{ mapTitle: t.contactMapTitle, mapSrc: restaurant.osmEmbed, mapHref: restaurant.osmLink }}>
+  document.querySelectorAll('[data-map]').forEach((root) => {
+    const button = root.querySelector('[data-map-button]');
+    const frame = root.querySelector('[data-map-frame]');
+    button?.addEventListener('click', () => {
+      if (!(frame instanceof HTMLElement) || frame.dataset.loaded === 'true') return;
+      frame.dataset.loaded = 'true';
+      frame.classList.remove('hidden');
+      const iframe = document.createElement('iframe');
+      iframe.title = mapTitle;
+      iframe.src = mapSrc;
+      iframe.loading = 'lazy';
+      iframe.className = 'h-80 w-full border border-line';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.append(iframe);
+      const anchor = document.createElement('a');
+      anchor.href = mapHref;
+      anchor.className = 'mt-3 inline-block';
+      anchor.textContent = 'OpenStreetMap';
+      frame.append(anchor);
+      if (button instanceof HTMLElement) button.hidden = true;
+    });
+  });
+</script>

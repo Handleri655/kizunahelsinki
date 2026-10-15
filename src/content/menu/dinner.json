@@ -1,0 +1,487 @@
+{
+  "order": 2,
+  "title": { "fi": "Illallinen", "en": "Dinner", "ja": "ディナー" },
+  "intro": {
+    "fi": "Syksyn lista: pientä jaettavaa, setit, kolme kurssia ja à la carte.",
+    "en": "The autumn list: small plates, sets, three courses and à la carte.",
+    "ja": "秋のメニュー。小皿、定食、3品コース、アラカルト。"
+  },
+  "sections": [
+    {
+      "title": { "fi": "Kauden nosto", "en": "Season's highlight", "ja": "おすすめ" },
+      "items": [
+        {
+          "name": { "fi": "Jo unadon -setti", "en": "Jo unadon set", "ja": "上鰻丼セット" },
+          "description": {
+            "fi": "Kuohkea ankerias talon unagikastikkeella, karamellisoidulla pinnalla. Mukana riisi, misokeitto, pikkelssi, kylmä tofu ja japanilainen munakas.",
+            "en": "Fluffy eel glazed with the house unagi sauce and a caramelised crust. Served with rice, miso soup, pickles, cold tofu and a Japanese omelet.",
+            "ja": "自家製のうなぎのタレをまとったふっくらしたうなぎ。ご飯、味噌汁、漬物、冷奴、だし巻き卵つき。"
+          },
+          "price": "60",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Syksyn annokset", "en": "Autumn plates", "ja": "秋メニュー" },
+      "items": [
+        {
+          "name": { "fi": "Valkoretikkapikkelssi", "en": "Radish pickles", "ja": "大根のべったら漬け" },
+          "price": "5",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Suomalaisten sienien tempura", "en": "Finnish mushroom tempura", "ja": "フィンランド産きのこの天ぷら" },
+          "price": "12",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Valkosipulilla paistetut suomalaiset sienet", "en": "Garlic sautéed Finnish mushrooms", "ja": "フィンランド産きのこのガーリックソテー" },
+          "price": "10",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Riisiä suomalaisilla sienillä", "en": "Finnish mushroom rice", "ja": "フィンランド産きのこのごはん" },
+          "price": "4,5",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Tantanmen", "en": "Tantanmen", "ja": "担々麺" },
+          "description": {
+            "fi": "Nuudeleita tulisen seesamiliemen kanssa. Tofu tai nauta.",
+            "en": "Noodles in a spicy sesame broth. Tofu or beef.",
+            "ja": "辛い胡麻スープの担々麺。豆腐またはビーフ。"
+          },
+          "price": "21",
+          "veganOption": true
+        },
+        {
+          "name": { "fi": "Suomalainen naudanleike", "en": "Finnish beef cutlet", "ja": "フィンランド産牛カツ" },
+          "price": "20"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Setit", "en": "Set meals", "ja": "定食セット" },
+      "note": {
+        "fi": "Jokaisen setin kanssa tulee riisi, misokeitto, pikkelssi ja kaksi pientä lisuketta. Japaninkielisessä listassa lisukkeet ovat dashi-munakas ja kylmä tofu.",
+        "en": "Every set comes with rice, miso soup, pickles and two small side dishes. The Japanese line on the menu names them as dashimaki tamago and cold tofu.",
+        "ja": "ご飯、味噌汁、漬物と小鉢二つ。日本語の表記ではだし巻き卵と冷奴。"
+      },
+      "items": [
+        {
+          "name": { "fi": "Wagyu-yakiniku-setti", "en": "Wagyu yakiniku set", "ja": "和牛焼肉" },
+          "description": { "fi": "Grillattua wagyu-nautaa.", "en": "Grilled wagyu beef.", "ja": "和牛の焼肉。" },
+          "price": "50"
+        },
+        {
+          "name": { "fi": "Grillattu lohisetti", "en": "Grilled salmon set", "ja": "塩麹サーモン" },
+          "description": { "fi": "Shio koji -marinoitu lohifilee.", "en": "Shio koji-marinated salmon fillet.", "ja": "塩麹に漬けたサーモン。" },
+          "price": "30"
+        },
+        {
+          "name": { "fi": "Mapo tofu -setti", "en": "Mapo tofu set", "ja": "麻婆豆腐" },
+          "description": { "fi": "Tulista tofua ja jauhelihanaudan kanssa.", "en": "Spicy tofu with minced beef.", "ja": "挽肉入りの麻婆豆腐。" },
+          "price": "30"
+        },
+        {
+          "name": { "fi": "Agedashi-tofu-setti", "en": "Agedashi tofu set", "ja": "揚げ出し豆腐" },
+          "description": { "fi": "Uppopaistettua tofua kirpeässä kastikkeessa.", "en": "Deep-fried tofu in a tangy sauce.", "ja": "さっぱりしたたれの揚げ出し豆腐。" },
+          "price": "30",
+          "allergens": ["G", "VE"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Pohjoismainen ateria", "en": "Nordic meal set", "ja": "北欧定食セット" },
+      "items": [
+        {
+          "name": { "fi": "Pohjoismainen setti", "en": "Nordic meal set", "ja": "北欧定食セット" },
+          "description": {
+            "fi": "Valkoretikkapikkelssi, lohi ja kombumarinoitu siika sashimina, soijamarinoitu kirjolohenmäti, teriyaki-lohi, suomalaisten sienien tempura, poro- ja lohi-onigiri, misokeitto sekä matcha-jäätelö ja tee.",
+            "en": "Radish pickles, salmon and kelp-marinated siika sashimi, soy-marinated rainbow trout roe, teriyaki salmon, Finnish mushroom tempura, reindeer and salmon onigiri, miso soup, and matcha ice cream with tea.",
+            "ja": "べったら漬け、サーモンと昆布締めシーカの刺身、いくら、照り焼きサーモン、きのこの天ぷら、トナカイとサーモンのおにぎり、味噌汁、抹茶アイスとお茶。"
+          },
+          "price": "45",
+          "extras": [
+            { "name": { "fi": "Härän sisäfileetätaki, 2 kpl", "en": "Beef tenderloin tataki, 2 pieces", "ja": "フィレ肉たたき2切れ" }, "price": "5" },
+            { "name": { "fi": "Matcha-jäätelö matcha-parfaitiksi", "en": "Upgrade matcha ice cream to a matcha parfait", "ja": "抹茶アイスを抹茶パフェに" }, "price": "8" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Kolmen ruokalajin menu", "en": "Three-course menu", "ja": "3品コース" },
+      "note": {
+        "fi": "Jos yksi seurueesta tilaa menun, toivomme että kaikki tilaavat samoin. Jokaisessa menussa on kauden edamame ja itsetehty tofu, misokeitto, riisi, pikkelssi sekä mini-vaniljaparfait ja tee. Iso parfait +5 €.",
+        "en": "If one guest orders a course, the menu asks that everyone in the party does the same. Each course includes the season's edamame and homemade tofu, miso soup, rice, pickles, and a vanilla mini parfait with tea. A large parfait is +5 €.",
+        "ja": "おひとりがコースの場合、皆さまにもコースをお願いしています。季節の枝豆と自家製豆腐、味噌汁、ご飯、漬物、バニラのミニパフェとお茶がつきます。大きなパフェは+5€。"
+      },
+      "items": [
+        {
+          "name": { "fi": "Lihakursi", "en": "Meat course", "ja": "肉コース" },
+          "description": {
+            "fi": "Härän sisäfileetätaki ja suomalainen naudanleike. Wagyu-päivitys leikkeeseen +15 €.",
+            "en": "Finnish beef tenderloin tataki and a Finnish beef cutlet. Wagyu upgrade for the cutlet +15 €.",
+            "ja": "フィレ肉たたきとフィンランド産牛カツ。和牛への変更は+15€。"
+          },
+          "price": "50",
+          "extras": [
+            { "name": { "fi": "Wagyu-päivitys", "en": "Wagyu upgrade", "ja": "和牛に変更" }, "price": "15" },
+            { "name": { "fi": "Iso parfait", "en": "Large parfait", "ja": "大きなパフェ" }, "price": "5" }
+          ]
+        },
+        {
+          "name": { "fi": "Kalakursi", "en": "Fish course", "ja": "魚コース" },
+          "description": {
+            "fi": "Pintapaahdettu lohi yuzu-pippurimajoneesilla ja grillattu shio koji -lohi.",
+            "en": "Seared salmon with yuzu-pepper mayonnaise and grilled shio koji salmon.",
+            "ja": "炙りサーモンの柚子胡椒マヨと塩麹サーモン。"
+          },
+          "price": "50",
+          "extras": [
+            { "name": { "fi": "Iso parfait", "en": "Large parfait", "ja": "大きなパフェ" }, "price": "5" }
+          ]
+        },
+        {
+          "name": { "fi": "Kasviskurssi", "en": "Vegetable course", "ja": "野菜コース" },
+          "description": {
+            "fi": "Valkosipulilla paistetut sienet ja uppopaistettu tofu sienikastikkeella.",
+            "en": "Garlic sautéed mushrooms and deep-fried tofu with mushroom sauce.",
+            "ja": "きのこのガーリックソテーと、きのこ餡の揚げ出し豆腐。"
+          },
+          "price": "45",
+          "extras": [
+            { "name": { "fi": "Iso parfait", "en": "Large parfait", "ja": "大きなパフェ" }, "price": "5" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Pienet annokset", "en": "Small bites", "ja": "とりあえず" },
+      "items": [
+        {
+          "name": { "fi": "Edamame", "en": "Edamame", "ja": "枝豆" },
+          "choices": { "fi": "Suola tai wasabisuola", "en": "Salt or wasabi salt", "ja": "塩 / わさび塩" },
+          "price": "5",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Itsetehty kimchi", "en": "Homemade kimchi", "ja": "自家製キムチ" },
+          "price": "5",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Tsukemono", "en": "Tsukemono", "ja": "漬物" },
+          "description": { "fi": "Varhaiskaalipikkelssi.", "en": "Cabbage pickles.", "ja": "キャベツの漬物。" },
+          "price": "5",
+          "allergens": ["G", "VE"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Kotitekoinen tofu", "en": "Homemade tofu", "ja": "自家製豆腐" },
+      "items": [
+        {
+          "name": { "fi": "Dashimaki tamago", "en": "Dashimaki tamago", "ja": "出汁巻き卵" },
+          "description": { "fi": "Suolaisenmakea japanilainen munakas.", "en": "Savoury-sweet Japanese omelet.", "ja": "だしの甘じょっぱい卵焼き。" },
+          "price": "9",
+          "allergens": ["G", "V"]
+        },
+        {
+          "name": { "fi": "Agedashi-tofu", "en": "Agedashi tofu", "ja": "揚げ出し豆腐" },
+          "description": { "fi": "Uppopaistettu tofu.", "en": "Deep-fried tofu.", "ja": "揚げ出し豆腐。" },
+          "price": "8",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Aburaage", "en": "Aburaage", "ja": "油揚げ" },
+          "description": { "fi": "Grillattu tofu.", "en": "Grilled tofu.", "ja": "油揚げ。" },
+          "price": "6",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Tofusalaatti", "en": "Tofu salad", "ja": "胡麻ドレ豆腐サラダ" },
+          "description": { "fi": "Seesamikastikkeella.", "en": "With sesame dressing.", "ja": "胡麻ドレッシングで。" },
+          "price": "9",
+          "allergens": ["G", "VE"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Grillatut", "en": "Grilled", "ja": "焼きもの" },
+      "items": [
+        {
+          "name": { "fi": "Naudankieli", "en": "Beef tongue", "ja": "牛タン" },
+          "unit": { "fi": "100 g", "en": "100 g", "ja": "100g" },
+          "price": "14",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Shio koji -lohi", "en": "Shio koji salmon", "ja": "塩麹サーモン" },
+          "unit": { "fi": "100 g", "en": "100 g", "ja": "100g" },
+          "price": "15",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Lohen niska", "en": "Salmon collar", "ja": "サーモンかま" },
+          "price": "15",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Chashu-porsas", "en": "Chashu pork", "ja": "炙りチャーシュー" },
+          "unit": { "fi": "100 g", "en": "100 g", "ja": "100g" },
+          "price": "10",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Vartaat", "en": "Skewers", "ja": "串焼き" },
+      "items": [
+        {
+          "name": { "fi": "Yakitori, kana", "en": "Yakitori, chicken", "ja": "焼き鳥" },
+          "unit": { "fi": "2 varrasta", "en": "2 skewers", "ja": "2本" },
+          "price": "9",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Kasvisvartaat", "en": "Vegetable skewers", "ja": "野菜串" },
+          "description": {
+            "fi": "Kaksi vihannesta: munakoiso, kesäkurpitsa, herkkusieni tai minitomaatti.",
+            "en": "Choose two: eggplant, zucchini, mushroom or mini tomato.",
+            "ja": "2種類を選択。ナス、ズッキーニ、きのこ、ミニトマト。"
+          },
+          "unit": { "fi": "2 varrasta", "en": "2 skewers", "ja": "2本" },
+          "price": "7",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Yakitori-lajitelma", "en": "Yakitori set", "ja": "串焼き盛り合わせ" },
+          "description": { "fi": "Kaksi kanavarrasta ja kaksi kasvisvarrasta.", "en": "Two chicken and two vegetable skewers.", "ja": "鶏2本、野菜2本。" },
+          "unit": { "fi": "4 varrasta", "en": "4 skewers", "ja": "4本" },
+          "price": "15",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Yakitori-lajitelma", "en": "Yakitori set", "ja": "串焼き盛り合わせ" },
+          "description": { "fi": "Seitsemän kanavarrasta ja kolme kasvisvarrasta.", "en": "Seven chicken and three vegetable skewers.", "ja": "鶏7本、野菜3本。" },
+          "unit": { "fi": "10 varrasta", "en": "10 skewers", "ja": "10本" },
+          "price": "33",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Tempura", "en": "Tempura", "ja": "天ぷら" },
+      "items": [
+        { "name": { "fi": "Katkaraputempura", "en": "Shrimp tempura", "ja": "海老天ぷら" }, "price": "18", "allergens": ["G"] },
+        { "name": { "fi": "Kasvistempura", "en": "Vegetable tempura", "ja": "季節の野菜天ぷら" }, "price": "14", "allergens": ["G", "VE"] }
+      ]
+    },
+    {
+      "title": { "fi": "Uppopaistetut", "en": "Deep-fried", "ja": "揚げ物" },
+      "items": [
+        { "name": { "fi": "Tonkatsu", "en": "Tonkatsu", "ja": "豚カツ" }, "description": { "fi": "Porsaanleike.", "en": "Pork cutlet.", "ja": "豚カツ。" }, "price": "14" },
+        { "name": { "fi": "Kanakatsu", "en": "Chicken katsu", "ja": "チキンカツ" }, "description": { "fi": "Kanaleike.", "en": "Chicken cutlet.", "ja": "チキンカツ。" }, "price": "14" },
+        {
+          "name": { "fi": "Kana-karaage", "en": "Chicken karaage", "ja": "鶏肉唐揚げ" },
+          "description": { "fi": "Soijamarinoitu uppopaistettu kana.", "en": "Deep-fried soy-marinated chicken.", "ja": "醤油に漬けた鶏の唐揚げ。" },
+          "price": "14",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Sieni-karaage", "en": "Mushroom karaage", "ja": "キノコ唐揚げ" },
+          "description": { "fi": "Soijamarinoituja uppopaistettuja sieniä.", "en": "Deep-fried soy-marinated mushrooms.", "ja": "醤油に漬けたきのこの唐揚げ。" },
+          "price": "11",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Wasabiperunat", "en": "Wasabi potatoes", "ja": "わさびフライドポテト" },
+          "description": { "fi": "Wasabisuolalla maustetut nauhaperunat.", "en": "Wasabi-salted fried potatoes.", "ja": "わさび塩のフライドポテト。" },
+          "price": "7",
+          "allergens": ["G", "VE"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Sushi", "en": "Sushi", "ja": "寿司" },
+      "items": [
+        { "name": { "fi": "Wagyu-nigiri", "en": "Wagyu nigiri", "ja": "和牛炙り握り" }, "unit": { "fi": "2 kpl", "en": "2 pieces", "ja": "2貫" }, "price": "12", "allergens": ["G"] },
+        { "name": { "fi": "Lohi-nigiri", "en": "Salmon nigiri", "ja": "サーモン握り" }, "unit": { "fi": "6 kpl", "en": "6 pieces", "ja": "6貫" }, "price": "16", "allergens": ["G"] },
+        { "name": { "fi": "Siika-nigiri", "en": "Siika nigiri", "ja": "シーカ昆布締め握り" }, "description": { "fi": "Kombumarinoitu suomalainen siika.", "en": "Kelp-marinated Finnish siika.", "ja": "フィンランド産シーカの昆布締め。" }, "unit": { "fi": "6 kpl", "en": "6 pieces", "ja": "6貫" }, "price": "16", "allergens": ["G"] },
+        {
+          "name": { "fi": "Nigiri-setti", "en": "Nigiri set", "ja": "握り寿司セット" },
+          "description": { "fi": "Lohi, siika, wagyu, härän sisäfilee ja ikura.", "en": "Salmon, siika, wagyu, beef tenderloin and ikura.", "ja": "サーモン、シーカ、和牛、牛たたき、いくら。" },
+          "unit": { "fi": "5 kpl", "en": "5 pieces", "ja": "5貫" },
+          "price": "21",
+          "allergens": ["G"]
+        },
+        { "name": { "fi": "Lohikäsirulla", "en": "Salmon hand roll", "ja": "サーモン手巻き" }, "unit": { "fi": "2 kpl", "en": "2 pieces", "ja": "2本" }, "price": "11", "allergens": ["G"] },
+        { "name": { "fi": "Tofukäsirulla", "en": "Tofu hand roll", "ja": "豆腐の手巻き" }, "unit": { "fi": "2 kpl", "en": "2 pieces", "ja": "2本" }, "price": "10", "allergens": ["G", "VE"] }
+      ]
+    },
+    {
+      "title": { "fi": "Sashimi", "en": "Sashimi", "ja": "お刺身" },
+      "items": [
+        { "name": { "fi": "Lohi", "en": "Salmon", "ja": "サーモン" }, "unit": { "fi": "6 viipaletta", "en": "6 slices", "ja": "6切れ" }, "price": "15", "allergens": ["G"] },
+        {
+          "name": { "fi": "Pintapaahdettu lohi", "en": "Seared salmon", "ja": "炙りサーモン" },
+          "description": { "fi": "Yuzu-pippurimajoneesilla.", "en": "With yuzu-pepper mayonnaise.", "ja": "柚子胡椒マヨで。" },
+          "unit": { "fi": "6 viipaletta", "en": "6 slices", "ja": "6切れ" },
+          "price": "17",
+          "allergens": ["G"]
+        },
+        { "name": { "fi": "Härän sisäfileetätaki", "en": "Beef tenderloin tataki", "ja": "牛フィレ肉たたき" }, "unit": { "fi": "6 viipaletta", "en": "6 slices", "ja": "6切れ" }, "price": "16", "allergens": ["G"] },
+        { "name": { "fi": "Suomalainen siika", "en": "Finnish siika", "ja": "フィンランド産シーカ" }, "description": { "fi": "Kombumarinoitu.", "en": "Kelp-marinated.", "ja": "昆布締め。" }, "unit": { "fi": "6 viipaletta", "en": "6 slices", "ja": "6切れ" }, "price": "16", "allergens": ["G"] },
+        {
+          "name": { "fi": "Siikatartari", "en": "Siika namerou", "ja": "シーカなめろう" },
+          "description": { "fi": "Misolla ja shiso-lehdillä.", "en": "With miso and shiso leaves.", "ja": "味噌と紫蘇の葉で。" },
+          "price": "18",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Sashimi-setti", "en": "Sashimi set", "ja": "刺身盛り合わせ" },
+          "description": { "fi": "Lohi, siika, härän tätaki ja ikura.", "en": "Salmon, siika, beef tataki and ikura.", "ja": "サーモン、シーカ、フィレ肉たたき、いくら。" },
+          "unit": { "fi": "9 palaa", "en": "9 pieces", "ja": "9切れ" },
+          "price": "20",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Gyoza, höyrytetyt ja keitot", "en": "Gyoza, steamed and soups", "ja": "餃子・蒸し物・汁物" },
+      "items": [
+        { "name": { "fi": "Kasvisgyoza", "en": "Vegetable gyoza", "ja": "野菜餃子" }, "unit": { "fi": "5 kpl", "en": "5 pieces", "ja": "5個" }, "price": "10", "allergens": ["VE"] },
+        {
+          "name": { "fi": "Höyrytetyt kasvikset ja tofu", "en": "Steamed vegetables and tofu", "ja": "野菜と豆腐の蒸し物" },
+          "description": { "fi": "Seesamikastikkeella.", "en": "With sesame sauce.", "ja": "胡麻だれ。" },
+          "price": "14",
+          "allergens": ["G", "VE"]
+        },
+        { "name": { "fi": "Misokeitto", "en": "Miso soup", "ja": "味噌汁" }, "price": "3,5", "allergens": ["G", "VE"] }
+      ]
+    },
+    {
+      "title": { "fi": "Riisi", "en": "Rice", "ja": "ごはん" },
+      "items": [
+        { "name": { "fi": "Valkoinen riisi", "en": "White rice", "ja": "白米" }, "price": "3,5", "allergens": ["G", "VE"] },
+        { "name": { "fi": "Shiso-riisi", "en": "Shiso rice", "ja": "ゆかりのまぜご飯" }, "price": "4", "allergens": ["G", "VE"] },
+        {
+          "name": { "fi": "Onigiri", "en": "Onigiri", "ja": "おにぎり" },
+          "description": {
+            "fi": "Kaksi kappaletta. Täytteet: poro (G), grillattu lohi (G), tonnikalamajoneesi (G) tai umeboshi (VE).",
+            "en": "Two pieces. Fillings: reindeer (G), grilled salmon (G), tuna mayonnaise (G) or umeboshi (VE).",
+            "ja": "2個。具はトナカイ（G）、焼き鮭（G）、ツナマヨ（G）、梅干し（VE）。"
+          },
+          "unit": { "fi": "2 kpl", "en": "2 pieces", "ja": "2個" },
+          "price": "10"
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Curry", "en": "Curry", "ja": "カレー" },
+      "note": {
+        "fi": "Curryt tulevat riisin kanssa.",
+        "en": "Curries are served with rice.",
+        "ja": "カレーにはご飯がつきます。"
+      },
+      "items": [
+        { "name": { "fi": "Tonkatsucurry", "en": "Tonkatsu curry", "ja": "豚カツカレー" }, "price": "20" },
+        { "name": { "fi": "Kanakatsucurry", "en": "Chicken katsu curry", "ja": "鶏カツカレー" }, "price": "20" },
+        { "name": { "fi": "Naudanleikecurry", "en": "Beef katsu curry", "ja": "牛カツカレー" }, "price": "25" },
+        { "name": { "fi": "Kasviscurry", "en": "Vegetable curry", "ja": "野菜カレー" }, "price": "19", "allergens": ["VE"] }
+      ]
+    },
+    {
+      "title": { "fi": "Donburit", "en": "Rice bowls", "ja": "丼物" },
+      "items": [
+        {
+          "name": { "fi": "Ikuradon", "en": "Ikura don", "ja": "いくら丼" },
+          "description": { "fi": "Kirjolohenmätiä. 200 g.", "en": "Rainbow trout roe. 200 g.", "ja": "いくら。200g。" },
+          "price": "25",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Lohisashimi-don", "en": "Salmon sashimi don", "ja": "サーモン刺身丼" },
+          "price": "21",
+          "allergens": ["G"],
+          "extras": [
+            { "name": { "fi": "Lisää mätiä 100 g", "en": "Extra roe 100 g", "ja": "いくら100g増量" }, "price": "10" }
+          ]
+        },
+        {
+          "name": { "fi": "Chirashi", "en": "Chirashi sushi", "ja": "ちらし寿司" },
+          "description": { "fi": "Lohi ja siika.", "en": "Salmon and siika.", "ja": "サーモンとシーカ。" },
+          "price": "22",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Ramen", "en": "Ramen", "ja": "ラーメン" },
+      "items": [
+        {
+          "name": { "fi": "Miso-ramen", "en": "Miso ramen", "ja": "味噌ラーメン" },
+          "choices": { "fi": "Porsas, kasvis tai vegaaninen", "en": "Pork, vegetarian or vegan", "ja": "ポーク / ベジタリアン / ヴィーガン" },
+          "price": "20",
+          "veganOption": true,
+          "extras": [
+            { "name": { "fi": "Tulinen kastike", "en": "Spicy sauce", "ja": "スパイシーソース" }, "price": "2" },
+            { "name": { "fi": "Chashu-porsas", "en": "Chashu pork", "ja": "チャーシュー" }, "price": "5" },
+            { "name": { "fi": "Kananmuna", "en": "Egg", "ja": "味玉" }, "price": "2" },
+            { "name": { "fi": "Nori", "en": "Nori", "ja": "海苔" }, "price": "2" }
+          ]
+        },
+        {
+          "name": { "fi": "Shoyu-ramen", "en": "Shoyu ramen", "ja": "醤油ラーメン" },
+          "choices": { "fi": "Porsas, kasvis tai vegaaninen", "en": "Pork, vegetarian or vegan", "ja": "ポーク / ベジタリアン / ヴィーガン" },
+          "price": "20",
+          "veganOption": true,
+          "extras": [
+            { "name": { "fi": "Tulinen kastike", "en": "Spicy sauce", "ja": "スパイシーソース" }, "price": "2" },
+            { "name": { "fi": "Chashu-porsas", "en": "Chashu pork", "ja": "チャーシュー" }, "price": "5" },
+            { "name": { "fi": "Kananmuna", "en": "Egg", "ja": "味玉" }, "price": "2" },
+            { "name": { "fi": "Nori", "en": "Nori", "ja": "海苔" }, "price": "2" }
+          ]
+        },
+        {
+          "name": { "fi": "Ramen ja mini-don", "en": "Ramen and mini rice bowl", "ja": "ラーメンミニ丼セット" },
+          "description": { "fi": "Ramen ja pieni don: chashu-porsas tai agedashi-tofu.", "en": "Ramen plus a mini don of chashu pork or agedashi tofu.", "ja": "ラーメンとミニ丼。焼豚または揚げ出し豆腐。" },
+          "price": "27",
+          "veganOption": true
+        },
+        {
+          "name": { "fi": "Ramen ja sushi", "en": "Ramen and sushi", "ja": "ラーメン寿司コンボ" },
+          "description": { "fi": "Ramen ja kolme nigiriä: lohi tai avokado.", "en": "Ramen and three pieces of sushi: salmon or avocado.", "ja": "ラーメンと握り3貫。サーモンまたはアボカド。" },
+          "price": "27",
+          "allergens": ["G"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Jälkiruoat", "en": "Desserts", "ja": "デザート" },
+      "items": [
+        {
+          "name": { "fi": "Matcha-terriini", "en": "Matcha terrine", "ja": "抹茶テリーヌ" },
+          "description": { "fi": "Tiivis matcha-kakku. Talon tekemä.", "en": "A rich, fudgy matcha cake. Made in house.", "ja": "しっとりした抹茶のケーキ。自家製。" },
+          "price": "8",
+          "allergens": ["G", "V"]
+        },
+        { "name": { "fi": "Kookosjäätelö", "en": "Coconut ice cream", "ja": "ココナッツアイスクリーム" }, "price": "6", "allergens": ["G", "VE", "L"] },
+        { "name": { "fi": "Vaniljajäätelö", "en": "Vanilla ice cream", "ja": "バニラアイスクリーム" }, "price": "6", "allergens": ["G", "V"] },
+        { "name": { "fi": "Matcha-jäätelö", "en": "Matcha ice cream", "ja": "抹茶アイスクリーム" }, "price": "7", "allergens": ["G", "V"] },
+        {
+          "name": { "fi": "Mansikkaparfait", "en": "Strawberry parfait", "ja": "いちごパフェ" },
+          "allergens": ["G", "V", "L"],
+          "veganOption": true,
+          "options": [
+            { "name": { "fi": "Matcha", "en": "Matcha", "ja": "抹茶" }, "price": "15", "allergens": ["G", "V"] },
+            { "name": { "fi": "Vanilja", "en": "Vanilla", "ja": "バニラ" }, "price": "15", "allergens": ["G", "V"] },
+            { "name": { "fi": "Kookos", "en": "Coconut", "ja": "ココナッツ" }, "price": "13", "allergens": ["G", "VE"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

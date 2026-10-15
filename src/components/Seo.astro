@@ -1,0 +1,42 @@
+---
+import { localePath, ogLocale, type Lang, type RouteId, locales } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  route: RouteId;
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { lang, route, title, description, noindex = false } = Astro.props;
+const canonical = new URL(localePath(lang, route), Astro.site);
+const image = new URL('/og.png', Astro.site);
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical.href} />}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ravintola KIZUNA" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical.href} />
+<meta property="og:image" content={image.href} />
+<meta property="og:locale" content={ogLocale[lang]} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.href} />
+{
+  !noindex &&
+    locales.map((locale) => (
+      <link
+        rel="alternate"
+        hreflang={locale}
+        href={new URL(localePath(locale, route), Astro.site).href}
+      />
+    ))
+}
+{!noindex && <link rel="alternate" hreflang="x-default" href={new URL(localePath('fi', route), Astro.site).href} />}
+<meta name="theme-color" content="#f3eee4" />

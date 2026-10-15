@@ -1,0 +1,15 @@
+---
+import StoryPage from '../../components/pages/StoryPage.astro';
+import { isLang, localizedStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return localizedStaticPaths();
+}
+
+const { lang } = Astro.params;
+if (!isLang(lang)) {
+  throw new Error(`Unknown locale: ${lang}`);
+}
+---
+
+<StoryPage lang={lang} />

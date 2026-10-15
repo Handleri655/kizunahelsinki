@@ -1,0 +1,184 @@
+{
+  "order": 1,
+  "title": { "fi": "Lounas", "en": "Lunch", "ja": "ランチ" },
+  "when": { "fi": "Ma–pe 11–15", "en": "Mon–Fri 11–15", "ja": "月–金 11–15" },
+  "intro": {
+    "fi": "Lounaan erikoiset ja donburit. Ramenin kanssa voi ottaa pienen lisädonin.",
+    "en": "Lunch specials and rice bowls. A small extra bowl can be added with ramen.",
+    "ja": "ランチのスペシャルと丼。ラーメンにはミニ丼を足せます。"
+  },
+  "sections": [
+    {
+      "title": { "fi": "Erikoiset", "en": "Specials", "ja": "スペシャル" },
+      "items": [
+        {
+          "name": { "fi": "Grillattu lohen niskasetti", "en": "Grilled salmon collar set", "ja": "炭火焼き鮭かまセット" },
+          "description": {
+            "fi": "Riisin, misokeiton ja pikkelssin kanssa.",
+            "en": "With rice, miso soup and pickles.",
+            "ja": "ご飯、味噌汁、漬物つき。"
+          },
+          "price": "20",
+          "allergens": ["G"],
+          "featured": true
+        },
+        {
+          "name": { "fi": "Pohjoismainen onigiri-setti", "en": "Nordic onigiri set", "ja": "おにぎり3種" },
+          "description": {
+            "fi": "Kolme riisipalloa: tonnikalamajoneesi, poro ja lohi. Misokeitto mukana.",
+            "en": "Three rice balls: tuna mayonnaise, reindeer and salmon. Served with miso soup.",
+            "ja": "ツナマヨ、トナカイ、鮭のおにぎり3つ。味噌汁つき。"
+          },
+          "price": "17",
+          "allergens": ["G"],
+          "featured": true
+        },
+        {
+          "name": { "fi": "Tantanmen", "en": "Tantanmen", "ja": "担々麺" },
+          "choices": { "fi": "Nauta, kasvis tai vegaaninen", "en": "Beef, vegetarian or vegan", "ja": "ビーフ / ベジタリアン / ヴィーガン" },
+          "price": "17,5",
+          "veganOption": true,
+          "featured": true
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Donburit ja curry", "en": "Rice bowls and curry", "ja": "丼・カレー" },
+      "items": [
+        {
+          "name": { "fi": "Lohisashimi-don", "en": "Salmon sashimi don", "ja": "サーモンさしみ丼" },
+          "description": {
+            "fi": "Lohikulhona. Mätiä voi lisätä.",
+            "en": "Salmon bowl. Extra salmon roe is available.",
+            "ja": "サーモンの丼。いくらの増量もできます。"
+          },
+          "price": "16,5",
+          "allergens": ["G"],
+          "extras": [
+            { "name": { "fi": "Lisää lohenmätiä", "en": "Extra salmon roe", "ja": "いくら増量" }, "price": "10" }
+          ]
+        },
+        {
+          "name": { "fi": "Lohi-chirashi", "en": "Salmon chirashi sushi", "ja": "サーモンちらし寿司" },
+          "description": {
+            "fi": "Lohi, lohenmäti, kananmuna ja kasviksia.",
+            "en": "Salmon, salmon roe, egg and vegetables.",
+            "ja": "サーモン、いくら、卵、野菜。"
+          },
+          "price": "17",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Katsudon", "en": "Katsu don", "ja": "カツ丼" },
+          "choices": { "fi": "Porsas tai kana", "en": "Pork or chicken", "ja": "豚 / 鶏" },
+          "price": "15,5"
+        },
+        {
+          "name": { "fi": "Karaage-don", "en": "Karaage don", "ja": "唐揚げ丼" },
+          "choices": {
+            "fi": "Kana, tofu (VE) tai sieni (VE)",
+            "en": "Chicken, tofu (VE) or mushroom (VE)",
+            "ja": "鶏 / 豆腐（VE） / きのこ（VE）"
+          },
+          "price": "15,5",
+          "allergens": ["G"],
+          "veganOption": true,
+          "extras": [
+            { "name": { "fi": "Tulinen kastike", "en": "Spicy sauce", "ja": "スパイシーソース" }, "price": "2" }
+          ]
+        },
+        {
+          "name": { "fi": "Agedashi-tofu-don", "en": "Agedashi tofu don", "ja": "甘辛揚げ出し豆腐丼" },
+          "description": {
+            "fi": "Uppopaistettu tofu.",
+            "en": "Deep-fried tofu bowl.",
+            "ja": "揚げ出し豆腐の丼。"
+          },
+          "price": "14,5",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Yakitori-don", "en": "Yakitori don", "ja": "焼き鳥丼" },
+          "description": {
+            "fi": "Grillattua kanaa riisillä.",
+            "en": "Grilled chicken bowl.",
+            "ja": "焼き鳥の丼。"
+          },
+          "price": "16,5",
+          "allergens": ["G"]
+        },
+        {
+          "name": { "fi": "Kasvis-tempura-don", "en": "Vegetable tempura don", "ja": "野菜天ぷら丼" },
+          "price": "14,5",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Katsucurry", "en": "Katsu curry", "ja": "カツカレー" },
+          "choices": { "fi": "Porsas tai kana", "en": "Pork or chicken", "ja": "豚 / 鶏" },
+          "price": "16,5"
+        },
+        {
+          "name": { "fi": "Kasviscurry", "en": "Vegetable curry", "ja": "野菜カレー" },
+          "price": "15,5",
+          "allergens": ["VE"]
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Ramen", "en": "Ramen", "ja": "ラーメン" },
+      "items": [
+        {
+          "name": { "fi": "Miso-ramen", "en": "Miso ramen", "ja": "味噌ラーメン" },
+          "choices": { "fi": "Porsas, kasvis tai vegaaninen", "en": "Pork, vegetarian or vegan", "ja": "ポーク / ベジタリアン / ヴィーガン" },
+          "price": "16,5",
+          "veganOption": true,
+          "extras": [
+            { "name": { "fi": "Tulinen kastike", "en": "Spicy sauce", "ja": "スパイシーソース" }, "price": "2" },
+            { "name": { "fi": "Chashu-porsas", "en": "Chashu pork", "ja": "チャーシュー" }, "price": "5" }
+          ]
+        },
+        {
+          "name": { "fi": "Shoyu-ramen", "en": "Shoyu ramen", "ja": "醤油ラーメン" },
+          "choices": { "fi": "Porsas, kasvis tai vegaaninen", "en": "Pork, vegetarian or vegan", "ja": "ポーク / ベジタリアン / ヴィーガン" },
+          "price": "16,5",
+          "veganOption": true,
+          "extras": [
+            { "name": { "fi": "Tulinen kastike", "en": "Spicy sauce", "ja": "スパイシーソース" }, "price": "2" },
+            { "name": { "fi": "Chashu-porsas", "en": "Chashu pork", "ja": "チャーシュー" }, "price": "5" }
+          ]
+        },
+        {
+          "name": { "fi": "Ramen ja mini-don", "en": "Ramen mini rice bowl set", "ja": "ラーメンとミニ丼" },
+          "description": {
+            "fi": "Ramenin kanssa. Chashu-porsas tai agedashi-tofu.",
+            "en": "With ramen. Chashu pork or agedashi tofu.",
+            "ja": "ラーメンとセット。焼豚丼または揚げ出し豆腐丼。"
+          },
+          "choices": { "fi": "Chashu-porsas tai agedashi-tofu (VE)", "en": "Chashu pork or agedashi tofu (VE)", "ja": "焼豚 / 揚げ出し豆腐（VE）" },
+          "price": "7",
+          "veganOption": true
+        }
+      ]
+    },
+    {
+      "title": { "fi": "Pieni ja jälkiruoka", "en": "Small plates and dessert", "ja": "小鉢・デザート" },
+      "items": [
+        {
+          "name": { "fi": "Misokeitto", "en": "Miso soup", "ja": "味噌汁" },
+          "price": "3",
+          "allergens": ["G", "VE"]
+        },
+        {
+          "name": { "fi": "Matcha-terriini", "en": "Matcha terrine", "ja": "抹茶テリーヌ" },
+          "price": "7",
+          "allergens": ["G", "V"]
+        },
+        {
+          "name": { "fi": "Matcha-jäätelö", "en": "Matcha ice cream", "ja": "抹茶アイスクリーム" },
+          "price": "7",
+          "allergens": ["G", "V"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MobileBar from '../components/MobileBar.astro';
+import Seo from '../components/Seo.astro';
+import { copy } from '../i18n/copy';
+import { htmlLang, type Lang, type RouteId } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  route: RouteId;
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { lang, route, title, description, noindex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo lang={lang} route={route} title={title} description={description} noindex={noindex} />
+  </head>
+  <body>
+    <a
+      href="#sisalto"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
+    >
+      {copy[lang].skip}
+    </a>
+    <Header lang={lang} route={route} />
+    <main id="sisalto">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <MobileBar lang={lang} />
+  </body>
+</html>

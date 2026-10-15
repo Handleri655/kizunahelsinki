@@ -1,0 +1,33 @@
+{
+  "name": "kizunahelsinki",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/noto-sans-jp": "^5.3.1",
+    "@fontsource/shippori-mincho": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "typescript-eslint": "^8.71.2"
+  }
+}

@@ -1,0 +1,15 @@
+---
+import HomePage from '../../components/pages/HomePage.astro';
+import { isLang, localizedStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return localizedStaticPaths();
+}
+
+const { lang } = Astro.params;
+if (!isLang(lang)) {
+  throw new Error(`Unknown locale: ${lang}`);
+}
+---
+
+<HomePage lang={lang} />
