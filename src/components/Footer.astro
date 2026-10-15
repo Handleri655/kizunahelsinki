@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import mark from '../assets/brand/mark.png';
 import { restaurant } from '../data/restaurant';
 import { copy } from '../i18n/copy';
 import { localePath, type Lang } from '../i18n/utils';
@@ -14,7 +16,10 @@ const t = copy[lang];
 <footer class="border-t border-line bg-paper-deep">
   <div class="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-3">
     <div>
-      <p class="font-serif text-2xl tracking-[0.16em]">KIZUNA</p>
+      <div class="flex items-center gap-3">
+        <Image src={mark} alt="" width={42} height={40} class="h-10 w-10 object-contain" />
+        <p class="font-serif text-2xl tracking-[0.16em]">KIZUNA</p>
+      </div>
       <p class="mt-2 text-muted">{t.footerBond}</p>
     </div>
     <div>

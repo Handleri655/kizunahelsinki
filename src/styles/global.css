@@ -147,6 +147,25 @@
     text-transform: uppercase;
   }
 
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-foam);
+    padding: 0.65rem 0.85rem;
+    color: var(--color-ink);
+  }
+
+  textarea.field {
+    min-height: 9rem;
+    resize: vertical;
+  }
+
+  .field[aria-invalid='true'] {
+    border-color: var(--color-accent);
+  }
+
   .tab-input {
     position: absolute;
     width: 1px;

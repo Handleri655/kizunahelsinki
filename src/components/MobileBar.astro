@@ -13,9 +13,12 @@ const t = copy[lang];
 
 <nav
   aria-label={t.navMobile}
-  class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-line bg-paper md:hidden"
+  class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-line bg-paper md:hidden"
 >
   <a class="grid min-h-14 place-items-center no-underline" href={localePath(lang, 'reserve')}>{t.navReserve}</a>
+  <a class="grid min-h-14 place-items-center no-underline" href={restaurant.wolt} target="_blank" rel="noopener noreferrer">
+    {t.ctaOrder}
+  </a>
   <a class="grid min-h-14 place-items-center no-underline" href={`tel:${restaurant.phoneTel}`}>{t.ctaCall}</a>
   <a class="grid min-h-14 place-items-center no-underline" href={restaurant.mapsDirections}>{t.ctaRoute}</a>
 </nav>

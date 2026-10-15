@@ -1,8 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import atmosphere from '../../assets/placeholder/atmosphere.png';
+import logo from '../../assets/brand/logo.png';
+import plates from '../../assets/dishes/plates.jpg';
+import ramen from '../../assets/dishes/ramen.jpg';
+import salmon from '../../assets/dishes/salmon.jpg';
+import scallop from '../../assets/dishes/scallop.jpg';
+import sushi from '../../assets/dishes/sushi.jpg';
+import tiramisu from '../../assets/dishes/tiramisu.jpg';
 import JsonLd from '../JsonLd.astro';
+import MapEmbed from '../MapEmbed.astro';
 import OpenStatus from '../OpenStatus.astro';
+import { googleReviews } from '../../data/reviews';
 import { restaurant } from '../../data/restaurant';
 import { copy } from '../../i18n/copy';
 import { localePath, type Lang } from '../../i18n/utils';
@@ -14,6 +22,14 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = copy[lang];
+const photos = [
+  { src: sushi, alt: t.photoSushiAlt },
+  { src: ramen, alt: t.photoRamenAlt },
+  { src: salmon, alt: t.photoSalmonAlt },
+  { src: plates, alt: t.photoPlatesAlt },
+  { src: scallop, alt: t.photoScallopAlt },
+  { src: tiramisu, alt: t.photoTiramisuAlt },
+];
 const dishes = [
   { kanji: '寿司', title: t.dishSushiTitle, body: t.dishSushiBody },
   { kanji: '麺', title: t.dishRamenTitle, body: t.dishRamenBody },
@@ -33,22 +49,25 @@ const dishes = [
       <p class="mt-5 max-w-xl text-ink-soft">{t.heroSub}</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a class="btn" href={localePath(lang, 'reserve')}>{t.ctaReserve}</a>
+        <a class="btn" href={restaurant.wolt} target="_blank" rel="noopener noreferrer">
+          {t.ctaOrder}
+          <span class="sr-only">({t.ctaOrderOpens})</span>
+        </a>
         <a class="btn-ghost" href={localePath(lang, 'menu')}>{t.ctaMenu}</a>
       </div>
       <div class="mt-8">
         <OpenStatus lang={lang} />
       </div>
     </div>
-    <div class="relative">
+    <div class="flex items-center justify-center">
       <Image
-        src={atmosphere}
+        src={logo}
         alt=""
-        widths={[480, 800, 1200]}
-        sizes="(min-width: 768px) 36vw, 100vw"
-        class="aspect-[4/5] w-full object-cover"
+        widths={[480, 720, 1020]}
+        sizes="(min-width: 768px) 36vw, 80vw"
+        class="w-full max-w-md"
         loading="eager"
       />
-      <p class="pointer-events-none absolute right-4 bottom-4 font-serif text-5xl text-paper" aria-hidden="true">絆</p>
     </div>
   </section>
 
@@ -112,6 +131,36 @@ const dishes = [
     </p>
   </section>
 
+  <section id="arvostelut" class="scroll-mt-24 border-y border-line bg-foam" aria-labelledby="arvostelut-otsikko">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <p class="kicker">{t.reviewsKicker}</p>
+      <h2 id="arvostelut-otsikko" class="mt-3 font-serif text-4xl">{t.reviewsTitle}</h2>
+      <p class="mt-4 text-ink-soft">
+        <span class="font-serif text-4xl text-ink">{t.reviewsScore}</span>
+        <span> / 5</span>
+        {' '}· {googleReviews.count} {t.reviewsCount}
+      </p>
+      <ul class="mt-10 grid gap-4 md:grid-cols-3">
+        {
+          googleReviews.items.map((review) => (
+            <li class="border border-line bg-paper p-5">
+              <p class="tracking-wider text-accent" aria-hidden="true">
+                {'★'.repeat(review.stars)}
+                {'☆'.repeat(5 - review.stars)}
+              </p>
+              <p class="sr-only">{t.reviewsStars}</p>
+              <blockquote class="mt-4 text-ink-soft">{review.text}</blockquote>
+              <p class="mt-4 text-sm">{review.name}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-8">
+        <a href={restaurant.googleReviews} rel="noopener noreferrer">{t.reviewsLink}</a>
+      </p>
+    </div>
+  </section>
+
   <section class="bg-ink text-paper">
     <div class="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-[1fr_1fr] md:items-center">
       <div>
@@ -126,23 +175,42 @@ const dishes = [
     </div>
   </section>
 
-  <section class="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2">
-    <div class="reveal border border-line p-8">
-      <p class="kicker">{t.instagramKicker}</p>
-      <h2 class="mt-3 font-serif text-3xl">{t.instagramTitle}</h2>
-      <p class="mt-4 text-ink-soft">{t.instagramBody}</p>
-      <p class="mt-6">
-        <a href={restaurant.instagram} rel="noopener noreferrer">{restaurant.instagramHandle}</a>
-      </p>
-    </div>
-    <div class="reveal border border-line p-8">
-      <p class="kicker">{t.visitKicker}</p>
-      <h2 class="mt-3 font-serif text-3xl">{t.visitTitle}</h2>
-      <p class="mt-4 text-ink-soft">{t.visitDirections}</p>
-      <p class="mt-6 flex flex-wrap gap-4">
-        <a href={localePath(lang, 'contact')}>{t.navContact}</a>
-        <a href={restaurant.mapsDirections}>{t.ctaRoute}</a>
-      </p>
+  <section class="mx-auto max-w-6xl px-5 py-20" aria-labelledby="annoskuvat">
+    <p class="kicker">{t.instagramKicker}</p>
+    <h2 id="annoskuvat" class="mt-3 font-serif text-4xl">{t.photoTitle}</h2>
+    <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
+      {
+        photos.map((photo) => (
+          <li>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[320, 480]}
+              sizes="(min-width: 768px) 30vw, 50vw"
+              class="aspect-[3/4] w-full object-cover"
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-6 text-ink-soft">{t.instagramBody}</p>
+    <p class="mt-4">
+      <a href={restaurant.instagram} rel="noopener noreferrer">{restaurant.instagramHandle}</a>
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20">
+    <div class="grid items-center gap-8 md:grid-cols-2">
+      <div class="reveal border border-line p-8">
+        <p class="kicker">{t.visitKicker}</p>
+        <h2 class="mt-3 font-serif text-3xl">{t.visitTitle}</h2>
+        <p class="mt-4 text-ink-soft">{t.visitDirections}</p>
+        <p class="mt-6 flex flex-wrap gap-4">
+          <a href={localePath(lang, 'contact')}>{t.navContact}</a>
+          <a href={restaurant.mapsDirections}>{t.ctaRoute}</a>
+        </p>
+      </div>
+      <MapEmbed lang={lang} />
     </div>
   </section>
 </BaseLayout>

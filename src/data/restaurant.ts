@@ -10,11 +10,17 @@ export const restaurant = {
   instagram: 'https://www.instagram.com/kizuna_helsinki',
   instagramHandle: '@kizuna_helsinki',
   reservation: 'https://pos.sciometa.com/reserve/08d42b5',
+  wolt: 'https://wolt.com/fi/fin/helsinki/restaurant/kizuna1',
   /** Published coordinates for this address (60°9'34"N 24°56'19"E). Confirm before launch. */
   lat: 60.159444,
   lng: 24.938611,
   mapsDirections:
     'https://www.google.com/maps/dir/?api=1&destination=Pursimiehenkatu%2012%2C%2000150%20Helsinki',
+  maps: 'https://www.google.com/maps/place/KIZUNA/@60.1595627,24.9387726,17z/data=!4m8!3m7!1s0x46920b253ac3cf13:0x1922caad13366e85',
+  mapsEmbed:
+    'https://maps.google.com/maps?q=KIZUNA+Pursimiehenkatu+12,+00150+Helsinki&z=16&output=embed',
+  googleReviews:
+    'https://www.google.com/maps/place/KIZUNA/@60.1595627,24.9387726,17z/data=!4m8!3m7!1s0x46920b253ac3cf13:0x1922caad13366e85',
   osmLink: 'https://www.openstreetmap.org/?mlat=60.159444&mlon=24.938611#map=18/60.159444/24.938611',
   osmEmbed:
     'https://www.openstreetmap.org/export/embed.html?bbox=24.9306%2C60.1554%2C24.9466%2C60.1634&layer=mapnik&marker=60.159444%2C24.938611',
