@@ -1,13 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://www.kizunahelsinki.com',
   output: 'static',
-  adapter: node({ mode: 'standalone' }),
+  adapter: vercel(),
   trailingSlash: 'never',
   i18n: {
     defaultLocale: 'fi',
