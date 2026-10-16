@@ -15,22 +15,8 @@ const messages = {
   email: t.formEmailInvalid,
   phone: t.formRequired,
   amount: t.giftAmountInvalid,
-  success: t.giftSuccess,
-  pending: t.giftPending,
-  sendError: t.giftSendError,
-  mailSubject: t.giftMailSubject,
-  mailIntro: t.giftMailIntro,
-  mailFooter: t.giftMailFooter,
-  labels: {
-    name: t.giftBuyerName,
-    email: t.giftBuyerEmail,
-    phone: t.giftBuyerPhone,
-    amount: t.giftAmount,
-    recipient: t.giftRecipient,
-    delivery: t.giftDelivery,
-    recipientEmail: t.giftRecipientEmail,
-    greeting: t.giftGreeting,
-  },
+  cancelled: t.giftCancelled,
+  payError: t.giftPayError,
 };
 ---
 
@@ -41,7 +27,7 @@ const messages = {
     class="mt-8 max-w-2xl"
     novalidate
     data-gift-form
-    data-email={restaurant.email}
+    data-lang={lang}
     data-min={minAmount}
     data-max={maxAmount}
   >
@@ -121,7 +107,7 @@ const messages = {
         </legend>
         <div class="grid gap-2">
           <label class="flex items-center gap-3">
-            <input id="gift-delivery" type="radio" name="delivery" value={t.giftDeliveryPickup} />
+            <input id="gift-delivery" type="radio" name="delivery" value="pickup" />
             {t.giftDeliveryPickup}
           </label>
           <label class="flex items-center gap-3">
@@ -129,7 +115,7 @@ const messages = {
               id="gift-delivery-email-option"
               type="radio"
               name="delivery"
-              value={t.giftDeliveryEmail}
+              value="email"
               data-delivery-email
             />
             {t.giftDeliveryEmail}
@@ -184,22 +170,8 @@ const messages = {
       email: string;
       phone: string;
       amount: string;
-      success: string;
-      pending: string;
-      sendError: string;
-      mailSubject: string;
-      mailIntro: string;
-      mailFooter: string;
-      labels: {
-        name: string;
-        email: string;
-        phone: string;
-        amount: string;
-        recipient: string;
-        delivery: string;
-        recipientEmail: string;
-        greeting: string;
-      };
+      cancelled: string;
+      payError: string;
     };
     const min = Number(form.dataset.min);
     const max = Number(form.dataset.max);
@@ -260,6 +232,10 @@ const messages = {
       success.textContent = text;
     };
 
+    if (new URLSearchParams(window.location.search).get('maksu') === 'kesken') {
+      showStatus(messages.cancelled, true);
+    }
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (success) success.hidden = true;
@@ -290,59 +266,36 @@ const messages = {
       }
 
       if (honey?.value) {
-        showStatus(messages.success, false);
+        showStatus(messages.payError, true);
         return;
       }
 
-      const euros = `${Number(amount.value)} €`;
-      const lines = [
-        messages.mailIntro,
-        '',
-        `${messages.labels.name}: ${name.value.trim()}`,
-        `${messages.labels.email}: ${email.value.trim()}`,
-        `${messages.labels.phone}: ${phone.value.trim()}`,
-        `${messages.labels.amount}: ${euros}`,
-        recipient.value.trim() ? `${messages.labels.recipient}: ${recipient.value.trim()}` : '',
-        `${messages.labels.delivery}: ${chosen?.value ?? ''}`,
-        emailDelivery.checked ? `${messages.labels.recipientEmail}: ${recipientEmail.value.trim()}` : '',
-        greeting.value.trim() ? `${messages.labels.greeting}: ${greeting.value.trim()}` : '',
-        '',
-        messages.mailFooter,
-      ].filter((line) => line !== '');
-      const subject = `${messages.mailSubject} ${euros}`;
-      const recipientAddress = form.dataset.email ?? '';
+      const recipientAddress = chosen?.value === 'email' ? recipientEmail.value.trim() : '';
       if (submitButton) submitButton.disabled = true;
       try {
-        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipientAddress)}`, {
+        const response = await fetch('/api/gift-checkout', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
           body: JSON.stringify({
-            _subject: subject,
-            _template: 'box',
-            _captcha: 'false',
-            _replyto: email.value.trim(),
             name: name.value.trim(),
             email: email.value.trim(),
-            message: lines.join('\n'),
+            phone: phone.value.trim(),
+            amount: Number(amount.value),
+            recipient: recipient.value.trim(),
+            delivery: chosen?.value,
+            recipientEmail: recipientAddress,
+            greeting: greeting.value.trim(),
+            lang: form.dataset.lang,
           }),
         });
-        const result = (await response.json()) as { success?: string | boolean; message?: string };
-        if (typeof result.message === 'string' && result.message.includes('Activation')) {
-          showStatus(messages.pending, false);
-          return;
-        }
-        if (!response.ok || (result.success !== 'true' && result.success !== true)) {
-          throw new Error('send failed');
-        }
-        form.reset();
-        showRecipientEmail();
-        showStatus(messages.success, false);
+        const result = (await response.json()) as { url?: string };
+        if (!response.ok || !result.url) throw new Error('payment');
+        window.location.href = result.url;
       } catch {
-        showStatus(messages.sendError, true);
-      } finally {
+        showStatus(messages.payError, true);
         if (submitButton) submitButton.disabled = false;
       }
     });

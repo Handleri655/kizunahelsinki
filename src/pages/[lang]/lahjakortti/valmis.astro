@@ -1,0 +1,15 @@
+---
+import GiftCardThanks from '../../../components/pages/GiftCardThanks.astro';
+import { isLang, localizedStaticPaths } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return localizedStaticPaths();
+}
+
+const { lang } = Astro.params;
+if (!isLang(lang)) {
+  throw new Error(`Unknown locale: ${lang}`);
+}
+---
+
+<GiftCardThanks lang={lang} />

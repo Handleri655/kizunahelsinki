@@ -1,0 +1,54 @@
+---
+import { copy } from '../../i18n/copy';
+import type { Lang } from '../../i18n/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const messages = {
+  checking: t.giftChecking,
+  paidTitle: t.giftPaidTitle,
+  paidBody: t.giftPaidBody,
+  missing: t.giftPaidMissing,
+};
+---
+
+<BaseLayout lang={lang} route="gift" title={t.giftPaidTitle} description={t.giftPaidBody} noindex>
+  <div class="mx-auto max-w-3xl px-5 py-16">
+    <h1 id="gift-paid-title" class="font-serif text-4xl md:text-6xl">{t.giftChecking}</h1>
+    <p id="gift-paid-body" class="mt-6 max-w-2xl text-ink-soft"></p>
+  </div>
+  <script is:inline define:vars={{ messages }}>
+    const title = document.getElementById('gift-paid-title');
+    const body = document.getElementById('gift-paid-body');
+    const sessionId = new URLSearchParams(window.location.search).get('session_id');
+
+    const showMissing = () => {
+      if (title) title.textContent = messages.missing;
+      if (body) body.textContent = '';
+    };
+
+    if (!sessionId) {
+      showMissing();
+    } else {
+      fetch('/api/gift-confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ sessionId }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            showMissing();
+            return;
+          }
+          if (title) title.textContent = messages.paidTitle;
+          if (body) body.textContent = messages.paidBody;
+        })
+        .catch(showMissing);
+    }
+  </script>
+</BaseLayout>
