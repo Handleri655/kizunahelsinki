@@ -297,10 +297,10 @@
     display: none;
   }
 
-  #tab-lunch:checked ~ #panel-lunch,
-  #tab-dinner:checked ~ #panel-dinner,
-  #tab-brunch:checked ~ #panel-brunch,
-  #tab-drinks:checked ~ #panel-drinks {
+  .menu-board:has(#tab-lunch:checked) #panel-lunch,
+  .menu-board:has(#tab-dinner:checked) #panel-dinner,
+  .menu-board:has(#tab-brunch:checked) #panel-brunch,
+  .menu-board:has(#tab-drinks:checked) #panel-drinks {
     display: block;
   }
 }
