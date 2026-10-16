@@ -40,6 +40,7 @@ const t = copy[lang];
   </div>
   <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 pb-28 text-sm text-muted md:pb-8">
     <p>© {new Date().getFullYear()} {restaurant.name}</p>
+    <a href={localePath(lang, 'gift')}>{t.giftTitle}</a>
     <a class="hidden md:inline" href={localePath(lang, 'reserve')}>{t.ctaReserve}</a>
   </div>
 </footer>

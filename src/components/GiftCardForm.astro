@@ -1,0 +1,350 @@
+---
+import { restaurant } from '../data/restaurant';
+import { copy } from '../i18n/copy';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const { minAmount, maxAmount } = restaurant.giftCard;
+const messages = {
+  required: t.formRequired,
+  email: t.formEmailInvalid,
+  phone: t.formRequired,
+  amount: t.giftAmountInvalid,
+  success: t.giftSuccess,
+  pending: t.giftPending,
+  sendError: t.giftSendError,
+  mailSubject: t.giftMailSubject,
+  mailIntro: t.giftMailIntro,
+  mailFooter: t.giftMailFooter,
+  labels: {
+    name: t.giftBuyerName,
+    email: t.giftBuyerEmail,
+    phone: t.giftBuyerPhone,
+    amount: t.giftAmount,
+    recipient: t.giftRecipient,
+    delivery: t.giftDelivery,
+    recipientEmail: t.giftRecipientEmail,
+    greeting: t.giftGreeting,
+  },
+};
+---
+
+<section id="tilaus" class="mt-16 border-t border-line pt-14" aria-labelledby="gift-form-title">
+  <h2 id="gift-form-title" class="font-serif text-4xl">{t.giftFormTitle}</h2>
+  <p class="mt-4 max-w-2xl text-ink-soft">{t.giftPrivacy}</p>
+  <form
+    class="mt-8 max-w-2xl"
+    novalidate
+    data-gift-form
+    data-email={restaurant.email}
+    data-min={minAmount}
+    data-max={maxAmount}
+  >
+    <p class="text-sm text-muted">{t.formRequiredNote}</p>
+    <div class="mt-6 grid gap-5">
+      <div>
+        <label class="mb-2 block" for="gift-buyer-name">
+          {t.giftBuyerName} <span aria-hidden="true">*</span>
+        </label>
+        <input class="field" id="gift-buyer-name" name="name" type="text" autocomplete="name" required maxlength="80" />
+        <p id="gift-buyer-name-error" class="mt-2 text-sm text-accent" hidden></p>
+      </div>
+      <div>
+        <label class="mb-2 block" for="gift-buyer-email">
+          {t.giftBuyerEmail} <span aria-hidden="true">*</span>
+        </label>
+        <input
+          class="field"
+          id="gift-buyer-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          inputmode="email"
+          required
+          maxlength="120"
+        />
+        <p id="gift-buyer-email-error" class="mt-2 text-sm text-accent" hidden></p>
+      </div>
+      <div>
+        <label class="mb-2 block" for="gift-buyer-phone">
+          {t.giftBuyerPhone} <span aria-hidden="true">*</span>
+        </label>
+        <input
+          class="field"
+          id="gift-buyer-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          inputmode="tel"
+          required
+          maxlength="40"
+        />
+        <p id="gift-buyer-phone-error" class="mt-2 text-sm text-accent" hidden></p>
+      </div>
+      <div>
+        <label class="mb-2 block" for="gift-amount">
+          {t.giftAmount} <span aria-hidden="true">*</span>
+        </label>
+        <div class="flex items-center gap-3">
+          <input
+            class="field"
+            id="gift-amount"
+            name="amount"
+            type="number"
+            inputmode="numeric"
+            min={minAmount}
+            max={maxAmount}
+            step="1"
+            required
+            autocomplete="off"
+          />
+          <span aria-hidden="true">€</span>
+        </div>
+        <p class="mt-2 text-sm text-muted">{t.giftAmountHint}</p>
+        <p id="gift-amount-error" class="mt-2 text-sm text-accent" hidden></p>
+      </div>
+      <div>
+        <label class="mb-2 block" for="gift-recipient">
+          {t.giftRecipient}{' '}
+          <span class="text-muted">({t.formOptional})</span>
+        </label>
+        <input class="field" id="gift-recipient" name="recipient" type="text" maxlength="80" autocomplete="off" />
+      </div>
+      <fieldset class="border-0 p-0">
+        <legend class="mb-2">
+          {t.giftDelivery} <span aria-hidden="true">*</span>
+        </legend>
+        <div class="grid gap-2">
+          <label class="flex items-center gap-3">
+            <input id="gift-delivery" type="radio" name="delivery" value={t.giftDeliveryPickup} />
+            {t.giftDeliveryPickup}
+          </label>
+          <label class="flex items-center gap-3">
+            <input
+              id="gift-delivery-email-option"
+              type="radio"
+              name="delivery"
+              value={t.giftDeliveryEmail}
+              data-delivery-email
+            />
+            {t.giftDeliveryEmail}
+          </label>
+        </div>
+        <p id="gift-delivery-error" class="mt-2 text-sm text-accent" hidden></p>
+      </fieldset>
+      <div id="gift-recipient-email-wrap" hidden>
+        <label class="mb-2 block" for="gift-recipient-email">
+          {t.giftRecipientEmail} <span aria-hidden="true">*</span>
+        </label>
+        <input
+          class="field"
+          id="gift-recipient-email"
+          name="recipientEmail"
+          type="email"
+          inputmode="email"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <p id="gift-recipient-email-error" class="mt-2 text-sm text-accent" hidden></p>
+      </div>
+      <div>
+        <label class="mb-2 block" for="gift-message">
+          {t.giftGreeting}{' '}
+          <span class="text-muted">({t.formOptional})</span>
+        </label>
+        <textarea class="field" id="gift-message" name="greeting" maxlength="500"></textarea>
+      </div>
+    </div>
+    <p class="hidden">
+      <label>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+      </label>
+    </p>
+    <p class="mt-6" role="status" data-form-success hidden></p>
+    <p class="mt-6">
+      <button class="btn w-full sm:w-auto" type="submit">{t.giftSubmit}</button>
+    </p>
+    <script type="application/json" data-gift-copy set:html={JSON.stringify(messages)} />
+  </form>
+</section>
+
+<script>
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  document.querySelectorAll<HTMLFormElement>('[data-gift-form]').forEach((form) => {
+    const copyNode = form.querySelector('[data-gift-copy]');
+    if (!copyNode?.textContent) return;
+    const messages = JSON.parse(copyNode.textContent) as {
+      required: string;
+      email: string;
+      phone: string;
+      amount: string;
+      success: string;
+      pending: string;
+      sendError: string;
+      mailSubject: string;
+      mailIntro: string;
+      mailFooter: string;
+      labels: {
+        name: string;
+        email: string;
+        phone: string;
+        amount: string;
+        recipient: string;
+        delivery: string;
+        recipientEmail: string;
+        greeting: string;
+      };
+    };
+    const min = Number(form.dataset.min);
+    const max = Number(form.dataset.max);
+    const amountMessage = messages.amount.replace('{min}', String(min)).replace('{max}', String(max));
+    const success = form.querySelector<HTMLElement>('[data-form-success]');
+    const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const honey = form.querySelector<HTMLInputElement>('input[name="_honey"]');
+    const name = form.querySelector<HTMLInputElement>('#gift-buyer-name');
+    const email = form.querySelector<HTMLInputElement>('#gift-buyer-email');
+    const phone = form.querySelector<HTMLInputElement>('#gift-buyer-phone');
+    const amount = form.querySelector<HTMLInputElement>('#gift-amount');
+    const recipient = form.querySelector<HTMLInputElement>('#gift-recipient');
+    const delivery = form.querySelector<HTMLInputElement>('#gift-delivery');
+    const emailDelivery = form.querySelector<HTMLInputElement>('[data-delivery-email]');
+    const recipientWrap = form.querySelector<HTMLElement>('#gift-recipient-email-wrap');
+    const recipientEmail = form.querySelector<HTMLInputElement>('#gift-recipient-email');
+    const greeting = form.querySelector<HTMLTextAreaElement>('#gift-message');
+    if (!name || !email || !phone || !amount || !recipient || !delivery || !emailDelivery || !recipientWrap || !recipientEmail || !greeting) {
+      return;
+    }
+
+    const clear = (input: HTMLInputElement | HTMLTextAreaElement) => {
+      input.removeAttribute('aria-invalid');
+      const error = form.querySelector<HTMLElement>(`#${input.id}-error`);
+      if (!error) return;
+      error.hidden = true;
+      error.textContent = '';
+    };
+
+    const fail = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+      const error = form.querySelector<HTMLElement>(`#${input.id}-error`);
+      input.setAttribute('aria-invalid', 'true');
+      if (!error) return;
+      error.hidden = false;
+      error.textContent = message;
+      input.setAttribute('aria-describedby', error.id);
+    };
+
+    const showRecipientEmail = () => {
+      recipientWrap.hidden = !emailDelivery.checked;
+      if (recipientWrap.hidden) clear(recipientEmail);
+    };
+
+    form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach((input) => {
+      input.addEventListener('input', () => clear(input));
+    });
+    form.querySelectorAll<HTMLInputElement>('input[name="delivery"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        clear(delivery);
+        showRecipientEmail();
+      });
+    });
+
+    const showStatus = (text: string, isError: boolean) => {
+      if (!success) return;
+      success.hidden = false;
+      success.classList.toggle('text-accent', isError);
+      success.textContent = text;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (success) success.hidden = true;
+      [name, email, phone, amount, delivery, recipientEmail].forEach(clear);
+      let firstInvalid: HTMLElement | null = null;
+      const mark = (input: HTMLInputElement | HTMLTextAreaElement, text: string) => {
+        fail(input, text);
+        firstInvalid ??= input;
+      };
+
+      if (name.value.trim().length < 2) mark(name, messages.required);
+      if (!emailPattern.test(email.value.trim())) mark(email, messages.email);
+      if (phone.value.replace(/\D/g, '').length < 6) mark(phone, messages.phone);
+      if (!amount.value.trim()) mark(amount, messages.required);
+      else {
+        const value = Number(amount.value);
+        if (!Number.isInteger(value) || value < min || value > max) mark(amount, amountMessage);
+      }
+      const chosen = form.querySelector<HTMLInputElement>('input[name="delivery"]:checked');
+      if (!chosen) mark(delivery, messages.required);
+      if (emailDelivery.checked && !emailPattern.test(recipientEmail.value.trim())) {
+        mark(recipientEmail, messages.email);
+      }
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      if (honey?.value) {
+        showStatus(messages.success, false);
+        return;
+      }
+
+      const euros = `${Number(amount.value)} €`;
+      const lines = [
+        messages.mailIntro,
+        '',
+        `${messages.labels.name}: ${name.value.trim()}`,
+        `${messages.labels.email}: ${email.value.trim()}`,
+        `${messages.labels.phone}: ${phone.value.trim()}`,
+        `${messages.labels.amount}: ${euros}`,
+        recipient.value.trim() ? `${messages.labels.recipient}: ${recipient.value.trim()}` : '',
+        `${messages.labels.delivery}: ${chosen?.value ?? ''}`,
+        emailDelivery.checked ? `${messages.labels.recipientEmail}: ${recipientEmail.value.trim()}` : '',
+        greeting.value.trim() ? `${messages.labels.greeting}: ${greeting.value.trim()}` : '',
+        '',
+        messages.mailFooter,
+      ].filter((line) => line !== '');
+      const subject = `${messages.mailSubject} ${euros}`;
+      const recipientAddress = form.dataset.email ?? '';
+      if (submitButton) submitButton.disabled = true;
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipientAddress)}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: subject,
+            _template: 'box',
+            _captcha: 'false',
+            _replyto: email.value.trim(),
+            name: name.value.trim(),
+            email: email.value.trim(),
+            message: lines.join('\n'),
+          }),
+        });
+        const result = (await response.json()) as { success?: string | boolean; message?: string };
+        if (typeof result.message === 'string' && result.message.includes('Activation')) {
+          showStatus(messages.pending, false);
+          return;
+        }
+        if (!response.ok || (result.success !== 'true' && result.success !== true)) {
+          throw new Error('send failed');
+        }
+        form.reset();
+        showRecipientEmail();
+        showStatus(messages.success, false);
+      } catch {
+        showStatus(messages.sendError, true);
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  });
+</script>

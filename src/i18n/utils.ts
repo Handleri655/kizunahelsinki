@@ -27,6 +27,7 @@ export const routePaths = {
   menu: 'menu',
   story: 'tarina',
   school: 'sushikoulu',
+  gift: 'lahjakortti',
   reserve: 'varaa',
   contact: 'yhteystiedot',
 } as const;

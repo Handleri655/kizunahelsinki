@@ -7,6 +7,11 @@ export const restaurant = {
   phoneDisplay: '+358 44 952 2106',
   phoneTel: '+358449522106',
   email: 'info@kizunahelsinki.com',
+  /** Confirm amounts with the restaurant before launch. */
+  giftCard: {
+    minAmount: 10,
+    maxAmount: 1000,
+  },
   instagram: 'https://www.instagram.com/kizuna_helsinki',
   instagramHandle: '@kizuna_helsinki',
   reservation: 'https://pos.sciometa.com/reserve/08d42b5',
